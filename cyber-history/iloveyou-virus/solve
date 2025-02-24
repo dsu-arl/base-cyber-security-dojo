@@ -1,0 +1,107 @@
+#!/opt/pwn.college/python
+
+import time
+import sys
+from os import system
+
+def p(text, color):
+    color_codes = {
+        "red": "\033[91m",
+        "green": "\033[92m",
+        "yellow": "\033[93m",
+        "blue": "\033[94m",
+        "magenta": "\033[95m",
+        "cyan": "\033[96m",
+        "white": "\033[97m",
+        "reset": "\033[0m"
+    }
+    sys.stdout.write(color_codes.get(color, ""))
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.03)
+    sys.stdout.write(color_codes["reset"])
+
+# Question 1: What country did the code originate in? Phillipines.
+# Question 2: How was the virus transmitted? E-Mail.
+# Question 3: How did the virus run on people's computers?
+# Question 4: What file extension was appended on the end that users couldn't see? vbs (visual basic script)
+
+system('clear')
+p("Hello, hacker!\n", "green")
+p("Today, I'm going to tell you about the 'ILOVEYOU' virus\n", "green")
+p("Otherwise known as the 'Love Bug'!\n", "green")
+p("Press 'Enter' to begin!\n", "white")
+input()
+system('clear')
+p("A long time ago... in the year 2000\n\n", "yellow")
+p("A guy in the Phillipines wanted to make a virus.\n", "yellow")
+p("\n\n", "white")
+p("Once the code for his virus was created, he sent it via E-Mail with the subject of ILOVEYOU\n", "yellow")
+p("When someone would receive this email, it had an attachment called 'LOVE-LETTER-FOR-YOU.TXT.vbs'.\n", "yellow")
+p("Those are some weird extensions, huh?\n", "red")
+p("\n\n", "white")
+p("Back in Windows 2000, extensions were hidden by default, so .vbs would be left off.\n", "yellow")
+p("This means that users were tricked in to downloading the attachment because they thought it was just a text file!\n", "yellow")
+p("When the users went to open the \"text\" file to read it, it was actually a visual basic script.\n", "yellow")
+p("This script would then execute on their system and cause a lot of damage!\n", "yellow")
+p("The virus would overwrite random files on the system, destroying valuable documents.\n", "yellow")
+p("Then, the virus would copy the users outlook contact list and send the same 'ILOVEYOU'\nemail to all of them! This allowed it to propogate exponentially!\n", "red")
+input("Press enter to continue...")
+system("clear")
+p("Now that I've given you a quick rundown, get ready for a quick quiz!\n", "blue")
+p("\n\n", "white")
+
+p("1. What country did the code originate in?\n", "blue")
+p("\ta. Costa Rica\n", "blue")
+p("\tb. Phillipines\n", "blue")
+p("\tc. United States\n", "blue")
+p("\td. Mexico\n", "blue")
+ans = input("> ")
+if ans.lower().strip() != 'b':
+    p("That's incorrect! Try again!\n", "red")
+    exit(0)
+else:
+    p("Correct!\n\n", "green")
+
+
+p("2. How was the virus transmitted?\n", "blue")
+p("\ta. E-Mail attachment\n", "blue")
+p("\tb. USB stick drop\n", "blue")
+p("\tc. Had to be planted manually\n", "blue")
+p("\td. AOL Chat\n", "blue")
+ans = input("> ")
+if ans.lower().strip() != 'a':
+    p("That's incorrect! Try again!\n", "red")
+    exit(0)
+else:
+    p("Correct!\n\n", "green")
+
+
+p("3. How was the virus executed?\n", "blue")
+p("\ta. It executed when the email was read\n", "blue")
+p("\tb. It executed as soon as it was downloaded\n", "blue")
+p("\tc. It executed by itself without any user interaction\n", "blue")
+p("\td. The users had to execute it themselves\n", "blue")
+ans = input("> ")
+if ans.lower().strip() != 'd':
+    p("That's incorrect! Try again!\n", "red")
+    exit(0)
+else:
+    p("Correct!\n\n", "green")
+
+
+p("4. What file extension was appended to the end that users couldn't see?\n", "blue")
+p("\ta. .vsb\n", "blue")
+p("\tb. .vbs\n", "blue")
+p("\tc. .csv\n", "blue")
+p("\td. .TXT\n", "blue")
+ans = input("> ")
+if ans.lower().strip() != 'b':
+    p("That's incorrect! Try again!\n", "red")
+    exit(0)
+else:
+    p("Correct!\n\n", "green")
+
+with open('/flag', 'r') as fObj:
+    p(fObj.read().strip(), "purple")
