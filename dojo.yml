@@ -7,3 +7,5 @@ modules:
   name: Cyber History
 - id: osint
   name: OSINT
+- id: linux-basics
+  name: Linux Basics
