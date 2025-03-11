@@ -3,6 +3,10 @@ name: CSC 134
 type: hidden
 password: IntroToCyber
 modules:
+- id: linux-basics
+  name: Linux Basics
+- id: encoding
+  name: Encoding
 - id: cyber-history
   name: Cyber History
 - id: osint
