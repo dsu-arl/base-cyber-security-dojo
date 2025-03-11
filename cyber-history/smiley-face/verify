@@ -11,49 +11,44 @@ def print_instructions():
     simply by manipulating the username field during FTP login. FTP is a way to transfer files between computers 
     over the internet, like moving documents between your computer and a website.
 
-    - Step 1: Verify that the FTP server is running
-    The FTP server should now be active. To confirm this, run the following command:
+    - Step 1: Connect to the FTP Server
 
-        ss -antop
+    The FTP server should now be active - it is listening on TCP port 21, which is the standard port for FTP.
 
-    This command lists active network connections. Look for an entry similar to:
-
-            127.0.0.1:21
-
-    This indicates that the server is listening on TCP port 21, which is the standard port for FTP.
-
-    - Step 2: Connect to the FTP Server
-
-    Netcat is a command-line tool used to send and receive data over a network, often for testing connections, 
-    transferring files, or opening backdoor shells. You can use the 'nc' (netcat) command to connect to the FTP server 
+    You can use the 'nc' (netcat) command to connect to the FTP server. Netcat is a command-line tool used to send and 
+    receive data over a network, often for testing connections, transferring files, or opening backdoor shells. Run: 
 
         nc 127.0.0.1 21
 
-    If the connection is successful, the server should respond with a greeting message.
+    If the connection is successful, the server should respond with a greeting message - "220 (vsFTPd 2.3.4)".
+    Note that you will not have a prompt in this connection, but you can still interact with the remote terminal.
 
-    - Step 3: Exploit the vulnerability 
+    - Step 2: Exploit the vulnerability 
 
     You will now log in using a specially crafted username that triggers the backdoor. In your nc connection, type:
 
         USER test:)
 
     and press Enter. Notice the ':)' at the end of 'test' —this is what activates the malicious backdoor.
-
-    When prompted for a password, enter anything (it doesn’t matter). Example:
+    When prompted for a password, enter `PASS <anything>` (it doesn’t matter). Example:
 
         PASS test
 
-    - Step 4: Open a root shell
+    Note that nothing will change on your current screen, even if this command was successful.
 
-    If the exploit worked, the server will open a new backdoor shell on port 6200. In a new terminal, run:
+    - Step 3: Open a root shell
+
+    If the exploit worked, the server will open a new backdoor shell on port 6200. Leave your current nc connection open, 
+    and in a new terminal, run:
 
         nc 127.0.0.1 6200
 
-    This should connect you to a root shell, giving you full administrative control over the system.
+    This should connect you to a root shell on the server, giving you full administrative control over the system.
+    Note that you will again not have a prompt, but you will be able to run commands like normal.
 
-    - Step 5: Verify root access
+    - Step 4: Verify root access
 
-    Once inside the shell, type:
+    Once inside the root shell, type:
 
         whoami
 
@@ -63,15 +58,13 @@ def print_instructions():
 
     This confirms that you now have root privileges, meaning you can run any command on the system.
 
-    - Step 6: Capture the flag!
+    - Step 5: Capture the flag!
 
     In the root shell, read the flag file by running:
 
         cat /flag
 
-    This will display the **flag**, completing your challenge!
-
-    Congratulations! You have successfully exploited the vsFTPd backdoor and gained root access.
+    This will display the flag, completing your challenge!
     """)
 
 def start_vsftpd():
