@@ -26,7 +26,7 @@ def print_instructions():
     There are many other things you can do with Google dorks, too much to list here.
 
     With the information provided here, use a Google dork to tell me the two professors at DSU that have
-    the last name of "Richardson".
+    the last name of "Richardson". You will need to leave pwn.college and search for this on the World Wide Web :)
     
     ''')
 
@@ -43,7 +43,7 @@ def main():
     answer = input("What are the first names of the two professors at DSU with the last name 'Richardson'? (any order, space separated) ").lower()
     if ('rob' in answer or 'robert' in answer) and 'scott' in answer:
         print("That is correct!")
-        dork = input("\nWhat is the Google dork that you used? ")
+        dork = input("\nWhat is the Google dork that you used? (copy/paste the exact search you ran): ")
         if "site:dsu.edu" in dork and "\"richardson\"" in dork.lower():
             print("That is correct! An ideal dork for this search would be:")
             print("\tsite:dsu.edu \"Richardson\" AND \"Department\"")
