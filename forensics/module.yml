@@ -1,0 +1,5 @@
+name: Forensics
+challenges:
+- id: rodeo
+  name: rodeo
+  allow_privileged: false

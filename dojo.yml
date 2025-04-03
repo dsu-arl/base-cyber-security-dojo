@@ -11,3 +11,6 @@ modules:
   name: Cyber History
 - id: osint
   name: OSINT
+- id: forensics
+  name: Forensics
+  image: shawdynasty/pace-csc134-forensics
