@@ -1,0 +1,19 @@
+FROM python:3.11-slim
+
+USER root
+RUN apt update && apt install -y steghide
+
+# Delete ubuntu user, add hacker user and remove hacker's password
+RUN <<EOF
+  if id autopsy; then userdel -f -r autopsy; fi
+  useradd -s /bin/bash -m hacker
+  passwd -d hacker
+
+  ln -s /etc/bash.bashrc /etc/bashrc
+
+  echo "alias autopsy='autopsy --nosplash'" >> /home/hacker/.bashrc
+EOF
+
+COPY rodeo_files /home/Forensic_Files
+
+USER hacker

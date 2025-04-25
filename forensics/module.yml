@@ -1,5 +1,23 @@
 name: Forensics
 challenges:
-- id: rodeo
-  name: rodeo
+- id: lab0
+  name: Lab0
+  allow_privileged: false
+- id: lab1
+  name: Lab1
+  allow_privileged: false
+- id: lab2
+  name: Lab2
+  allow_privileged: false
+- id: lab3
+  name: Lab3
+  allow_privileged: false
+- id: lab4
+  name: Lab4
+  allow_privileged: false
+- id: lab5
+  name: Lab5
+  allow_privileged: false
+- id: lab6
+  name: Lab6
   allow_privileged: false

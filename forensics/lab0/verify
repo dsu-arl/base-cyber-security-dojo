@@ -1,0 +1,25 @@
+#!/opt/pwn.college/python
+import sys
+sys.path.append('/challenge')
+
+def print_flag():
+	try:
+		with open("/flag", "r") as f:
+			print(f.read())
+	except FileNotFoundError:
+		print("Error: Flag file not found.")
+
+# Add your imports and other code below here
+CORRECT_FLAG = "flag{you_are_good_but1_4m_b3tt3r}"
+
+def check_flag(student_input):
+	submitted = student.input.stip()
+	if sumbitted == CORRECT_FLAG:
+		print("Correct! Here's your the flag for PWN.COLLEGE:")
+		print_flag()
+	else:
+		print("Incorrect flag. Try again.")
+
+if __name__ == "__main__":
+	user_flag = input("Enter the flag you found:")
+	check_flag(user_flag)

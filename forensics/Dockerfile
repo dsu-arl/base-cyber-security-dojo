@@ -1,14 +1,15 @@
-FROM ubuntu:latest
+FROM phocean/volatility
 
 USER root
-RUN apt update && apt install -y steghide autopsy
 
-RUN <<EOF
-  if id ubuntu; then userdel -f -r ubuntu; fi
-  useradd -s /bin/bash -m hacker
-  passwd -d hacker
+# Install steghide and system dependencies for Volatility 3
+RUN apt update && apt install -y \
+    steghide
 
-  ln -s /etc/bash.bashrc /etc/bashrc
-EOF
+# Create hacker user with no password and set up bash env
+RUN useradd -s /bin/bash -m hacker && passwd -d hacker
+RUN ln -s /etc/bash.bashrc /etc/bashrc
 
 USER hacker
+
+COPY Volatility /home
