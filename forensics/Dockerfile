@@ -6,6 +6,8 @@ USER root
 RUN apt update && apt install -y \
     steghide
 
+RUN apt install python3 -y
+
 # Create hacker user with no password and set up bash env
 RUN useradd -s /bin/bash -m hacker && passwd -d hacker
 RUN ln -s /etc/bash.bashrc /etc/bashrc
