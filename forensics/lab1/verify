@@ -1,12 +1,36 @@
-#!/opt/pwn.college/python
+#!/usr/bin/exec-suid -- /usr/bin/python3 -I
+
 import sys
 sys.path.append('/challenge')
 
 def print_flag():
-	try:
-		with open("/flag", "r") as f:
-			print(f.read())
-	except FileNotFoundError:
-		print("Error: Flag file not found.")
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
 
-# Add your imports and other code below here
+# List of correct flags
+CORRECT_FLAGS = [
+    "flag{th1s_1s_th3_1st_st4g3!!}",
+    "flag{G00d_BoY_good_girL}",
+    "flag{w3ll_3rd_stage_was_easy}"
+]
+
+def check_flags_step_by_step():
+    i = 0  # Manual counter
+    while i < len(CORRECT_FLAGS):
+        user_flag = input(f"Enter flag {i + 1}: ").strip()
+        if user_flag == CORRECT_FLAGS[i]:
+            print(f"Flag {i + 1} correct!")
+            i += 1  # Move to next flag
+        else:
+            print(f"Incorrect flag {i + 1}. Try again later.")
+            return  # Exit immediately if wrong
+    # If all flags are correct:
+    print("🏁 All flags correct! Here's your final flag:")
+    print_flag()
+
+
+if __name__ == "__main__":
+    check_flags_step_by_step()
