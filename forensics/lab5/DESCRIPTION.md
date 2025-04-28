@@ -1,4 +1,3 @@
-Challenge Description
 We received this memory dump from our client recently. Someone accessed his system when he was not there and he found some rather strange files being accessed. Find those files and they might be useful. I quote his exact statement,
 
 The names were not readable. They were composed of alphabets and numbers but I wasn't able to make out what exactly it was.
