@@ -12,6 +12,10 @@ RUN apt install python3 -y
 RUN useradd -s /bin/bash -m hacker && passwd -d hacker
 RUN ln -s /etc/bash.bashrc /etc/bashrc
 
+# Add exec-suid
+ADD --chown=0:0 http://github.com/pwncollege/exec-suid/releases/latest/download/exec-suid /usr/bin/exec-suid
+RUN chmod 6755 /usr/bin/exec-suid
+
 USER hacker
 
 COPY Volatility /home
