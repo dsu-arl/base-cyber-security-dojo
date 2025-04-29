@@ -14,8 +14,8 @@ def print_flag():
 CORRECT_FLAG = "flag{you_are_good_but1_4m_b3tt3r}"
 
 def check_flag(student_input):
-	submitted = student.input.stip()
-	if sumbitted == CORRECT_FLAG:
+	submitted = student_input.strip()
+	if submitted == CORRECT_FLAG:
 		print("Correct! Here's your the flag for PWN.COLLEGE:")
 		print_flag()
 	else:

@@ -28,7 +28,7 @@ def check_flags_step_by_step():
             print(f"Incorrect flag {i + 1}. Try again later.")
             return  # Exit immediately if wrong
     # If all flags are correct:
-    print("🏁 All flags correct! Here's your final flag:")
+    print("All flags correct! Here's your final flag:")
     print_flag()
 
 
