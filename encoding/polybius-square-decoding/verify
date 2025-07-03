@@ -1,0 +1,81 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+import sys
+import os
+import random
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Reverse Polybius square mapping
+polybius_reverse_dict = {
+    '11': 'A', '12': 'B', '13': 'C', '14': 'D', '15': 'E',
+    '21': 'F', '22': 'G', '23': 'H', '24': 'I', '25': 'K',
+    '31': 'L', '32': 'M', '33': 'N', '34': 'O', '35': 'P',
+    '41': 'Q', '42': 'R', '43': 'S', '44': 'T', '45': 'U',
+    '51': 'V', '52': 'W', '53': 'X', '54': 'Y', '55': 'Z'
+}
+
+# Main function to execute the Polybius square decoding challenge
+def play_polybius_game():
+    print("Welcome to the Polybius Square Decoding Challenge!")
+    print("Note that this challenge uses uppercase letters, and I/J share the same cell (24). In this challenge, assume 24 decodes to I.")
+    print("Use this table to help you decode your word:\n")
+    print("   1  2  3  4  5")
+    print("1  A  B  C  D  E")
+    print("2  F  G  H I/J K")
+    print("3  L  M  N  O  P")
+    print("4  Q  R  S  T  U")
+    print("5  V  W  X  Y  Z\n")
+
+    word_list = [
+        "CODE",
+        "BYTE",
+        "DATA",
+        "BITS",
+        "FLAG",
+        "TEXT",
+        "INFO",
+        "CHAR",
+        "KEYS",
+        "WORD"
+    ]
+
+    word_to_decode = random.choice(word_list).upper()
+
+    # Encode the word in Polybius coordinates
+    encoded_word = []
+    for char in word_to_decode:
+        for key, value in polybius_reverse_dict.items():
+            if value == char:
+                encoded_word.append(key)
+                break
+    encoded_result = ' '.join(encoded_word)
+
+    print(f"Your task is to decode this word from the following Polybius Square coordinates: {encoded_result}\n")
+
+    decoded_word = []
+
+    for index, coords in enumerate(encoded_word):
+        while True:
+            user_input = input(f"Decode this coordinate - {coords}: ").upper()
+            expected_char = word_to_decode[index]
+            if user_input == expected_char:
+                print("Correct!")
+                decoded_word.append(user_input)
+                break
+            else:
+                print("Incorrect. Try again.")
+                print(f"Hint: Find the coordinates {coords} in the Polybius square to get the correct letter.")
+
+    decoded_result = ''.join(decoded_word)
+
+    print(f"\nCongratulations, you decoded it correctly! The decoded word is {decoded_result}.")
+    print_flag()
+
+# Run the game
+play_polybius_game()

@@ -1,0 +1,48 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+import sys
+import os
+import random
+import base64
+from os.path import exists
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Main function to execute the Binary encoding challenge
+def main():
+	print("Since encoding base64 manually is time consuming, and since we don't want to reinvent the wheel, we will be using tools that are already available to us.\n")
+
+	print("Linux has a command called 'base64' that will encode any string passed to it.")
+
+	WORD_LIST = ['FISH', 'BANANA', 'CHICKEN', 'STORE', 'ZEBRA']
+
+	if not exists('/tmp/.b64_word'):
+		word = random.choice(WORD_LIST)
+		with open('/tmp/.b64_word', 'w') as fObj:
+			fObj.write(word)
+
+	else:
+		with open('/tmp/.b64_word', 'r') as fObj:
+			word = fObj.read().strip()
+
+	word_bytes = word.encode("ascii")
+	base64_bytes = base64.b64encode(word_bytes)
+	base64_string = base64_bytes.decode("ascii")
+
+	print(f"Using the Linux 'base64' command, encode the string '{word}' and submit the encoded string.\n")
+	print("HINT: To pass the word to the base64 command you need to run it as follows: \"echo -n '<YOUR_WORD' | base64\" ")	
+
+	user_string = input("Submit encoded string, or type 'q' to exit: ")
+
+	if user_string == 'q' or user_string == 'Q':
+		sys.exit(0)
+	elif user_string == base64_string:
+		print("That's correct!")
+		print_flag()
+
+main()

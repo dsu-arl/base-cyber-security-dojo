@@ -1,0 +1,63 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+def rail_fence_encode(text, rails):
+    # Create a list of empty strings for each rail
+    fence = [''] * rails
+    
+    # Fill the fence with the text in zigzag pattern
+    rail = 0
+    direction = 1  # 1 for down, -1 for up
+    
+    for char in text:
+        fence[rail] += char
+        rail += direction
+        
+        # Change direction when reaching top or bottom rail
+        if rail == rails - 1:
+            direction = -1
+        elif rail == 0:
+            direction = 1
+
+    # Join all rails to get the encoded text
+    return ''.join(fence)
+
+def main():
+    # Fixed word to encode
+    word_to_encode = "SECURITY"
+    num_rails = 3
+    
+    # Encode the word
+    encoded_word = rail_fence_encode(word_to_encode, num_rails)
+    print('Encoded word: ', encoded_word)
+    
+    print("Welcome to the Rail Fence Cipher Challenge!")
+    print(f"\nYour task is to encode this word: {word_to_encode}")
+    print(f"Using {num_rails} rails")
+    print("\nRemember the Rail Fence pattern:")
+    print("1. Write the message in a zigzag pattern across the specified number of rails")
+    print("2. Read the message row by row to get the encoded text")
+    print("\nType 'quit' to exit.")
+    
+    while True:
+        user_answer = input("Enter your encoded answer: ").upper()
+        
+        if user_answer.lower() == 'quit':
+            break
+            
+        if user_answer == encoded_word:
+            print("Correct!")
+            print("Congratulations! You have passed this challenge! Here is your flag:")
+            print_flag()
+            break
+        else:
+            print("Incorrect. Try again!")
+            print(f"Hint: The encoded word should be {len(encoded_word)} characters long.")
+
+if __name__ == '__main__':
+    main()

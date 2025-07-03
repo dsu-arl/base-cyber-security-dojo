@@ -1,0 +1,63 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+import sys
+import os
+import random
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Main function to execute the Hexadecimal decoding challenge
+def play_hex_game():
+    print("Welcome to the Hexadecimal Decoding Challenge!")
+
+    print("Note that this challenge uses uppercase letters (lowercase letters have different values). Use this table to help you!")
+
+    print("\nA  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z")
+    print("41 42 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F 50 51 52 53 54 55 56 57 58 59 5A")
+
+    word_list = [
+        "APPLE",
+        "CANAL",
+        "CLOUD",
+        "DREAM",
+        "EARLY",
+        "FIELD",
+        "GRAPE",
+        "HOUSE",
+        "ISLE",
+        "JUMPY"
+    ]
+
+    word_to_decode = random.choice(word_list).upper()
+
+    # Encode the word in Hexadecimal
+    encoded_word = [str(hex(ord(char))) for char in word_to_decode]
+    encoded_result = ' '.join(encoded_word)
+
+    print(f"Your task is to decode this word from the following Hexadecimal values: {encoded_result}")
+
+    decoded_word = []
+    
+    for index, hex_value in enumerate(encoded_word):
+        while True:
+            user_input = input(f"Decode this Hexadecimal value - {hex_value}: ")
+            if user_input.upper() == word_to_decode[index]:
+                print("Correct!")
+                decoded_word.append(user_input.upper())
+                break
+            else:
+                print("Incorrect. Try again.")
+                print("Look up the Hexadecimal table and decode the correct letter.")
+
+    decoded_result = ''.join(decoded_word)
+
+    print(f"\nCongratulations, you decoded it correctly! The decoded word is {decoded_result}.")
+    print_flag()
+
+# Run the game
+play_hex_game()
+

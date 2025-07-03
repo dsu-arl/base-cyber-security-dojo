@@ -1,0 +1,61 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+import sys
+import os
+import random
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Main function to execute the ASCII encoding challenge
+def play_hex_game():
+    print("Welcome to the Hexadecimal Encoding Challenge!")
+    
+    print("Note that this challenge uses uppercase letters (lowercase letters have different values). Use this table to help you!\n")
+    
+    print("\nA  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z")
+    print("41 42 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F 50 51 52 53 54 55 56 57 58 59 5A")
+    
+    word_list = [
+        "CODE",
+        "BYTE",
+        "DATA",
+        "BITS",
+        "FLAG",
+        "TEXT",
+        "INFO",
+        "CHAR",
+        "KEYS",
+        "WORD"
+    ]
+
+    word_to_encode = random.choice(word_list).upper()
+
+    print(f"Your task is to encode this word in Hexadecimal values: {word_to_encode}")
+
+
+    encoded_word = []
+
+    for char in word_to_encode:
+        correct_ascii = str(hex(ord(char)))
+        while True:
+            user_input = input(f"Encode this character - {char}: ")
+            if user_input == correct_ascii:
+                print("Correct!")
+                encoded_word.append(user_input)
+                break
+            else:
+                print("Incorrect. Try again.")
+                print("Find the letter in the Hex table, and enter the corresponding number. Did you make sure to add the '0x' at the beginning? Did you capitalize any letters in the hexadecimal number?")
+
+    encoded_result = ' '.join(encoded_word)
+
+    print(f"\nCongratulations, you encoded it correctly! Once encoded, {word_to_encode} becomes {encoded_result}.")
+    print_flag()
+
+# Run the game
+play_hex_game()
+

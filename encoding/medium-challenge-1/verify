@@ -1,0 +1,62 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+import sys
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Add your imports and other code below here
+def encode_answer(answer):
+    # Caesar -> ASCII -> Binary
+    letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+    # Caesar cipher
+    shift = 12
+    encoded_word = ''
+    for char in answer:
+        num = letters.index(char)
+        shifted_num = (num + shift) % 26
+        encoded_word += letters[shifted_num]
+    
+    # Convert to ASCII
+    encoded_word = [ord(char) for char in encoded_word]
+
+    # Convert to Binary
+    encoded_word = [format(number, '08b') for number in encoded_word]
+
+    return ' '.join(encoded_word)
+
+
+def main():
+    answer = 'DAKOTASTATE'
+
+    RED_TEXT_CODE = '\033[31m'
+    GREEN_TEXT_CODE = '\033[32m'
+    RESET_TEXT_CODE = '\033[0m'
+
+    encoded_word = encode_answer(answer)
+    
+    print("Type 'quit' to exit.")
+    print('String to decode:', encoded_word)
+
+    while True:
+        user_answer = input('Decoded answer: ')
+
+        if user_answer.lower() == 'quit':
+            break
+
+        if user_answer == answer:
+            print(f'{GREEN_TEXT_CODE}Correct!{RESET_TEXT_CODE}')
+            print("Congragulations! You have passed this challenge! Here is your flag:")
+            print_flag()
+            break
+        else:
+            print(f'{RED_TEXT_CODE}Incorrect{RESET_TEXT_CODE}')
+
+
+if __name__ == '__main__':
+    main()
