@@ -1,7 +1,16 @@
 FROM debian
 
-RUN apt update; apt install firefox-esr python3 python3-pip python3-flask -y
-RUN wget -O burp.sh 'http://portswigger.net/burp/releases/download?product=community&type=Linux' && chmod +x burp.sh && ./burp.sh
+RUN apt update; apt install firefox-esr python3 python3-pip python3-flask wget -y
+RUN apt install wget lsb-release -y
+RUN wget https://packages.microsoft.com/config/debian/$(lsb_release -rs)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+RUN dpkg -i packages-microsoft-prod.deb
+
+RUN apt update; apt install msopenjdk-21 -y
+
+
+
+RUN wget -O burp.jar 'http://portswigger.net/burp/releases/download?product=community&type=Jar' 
+
 
 
 RUN <<EOF
