@@ -11,7 +11,7 @@ def print_flag():
 
 # Add your imports and other code below here
 def main():
-    answer = 'DSUCYBHERCAMP'
+    answer = 'CRYPTOGRAPHYROCKS'
 
     RED_TEXT_CODE = '\033[31m'
     GREEN_TEXT_CODE = '\033[32m'
