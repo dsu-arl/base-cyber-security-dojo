@@ -23,6 +23,9 @@ def index():
 
 @app.route('/tryUnlock', methods=['GET'])
 def tryUnlock():
+    agentHeader = request.headers['User-Agent']
+    if (agentHeader == "flagpls"):
+        return render_template('success.html')
     return render_template('fail.html')
 
 @app.route('/check-pass', methods=['POST'])

@@ -25,7 +25,9 @@ RUN chmod 6755 /usr/bin/exec-suid
 
 RUN mkdir /etc/firefox-esr; mkdir /etc/firefox-esr/defaults; mkdir /etc/firefox-esr/defaults/pref
 RUN printf 'pref("general.config.filename", "firefox.cfg");\npref("general.config.obscure_value", 0);' > /etc/firefox-esr/defaults/pref/autoconfig.js
-RUN printf '// IMPORTANT: Start your code on the 2nd line\npref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true);\npref("network.proxy.backup.ssl", "");\npref("network.proxy.backup.ssl_port", 0);\npref("network.proxy.http", "127.0.0.1");\npref("network.proxy.http_port", 8080);\npref("network.proxy.share_proxy_settings", true);\npref("network.proxy.ssl", "127.0.0.1");\npref("network.proxy.ssl_port", 8080);\npref("network.proxy.type", 1);\npref("network.trr.mode", 5);' > /etc/firefox-esr/firefox.cfg
+RUN printf '// IMPORTANT: Start your code on the 2nd line\npref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true);\npref("network.proxy.backup.ssl", "");\npref("network.proxy.backup.ssl_port", 0);\npref("network.proxy.http", "127.0.0.1");\npref("network.proxy.http_port", 8080);\npref("network.proxy.share_proxy_settings", true);\npref("network.proxy.ssl", "127.0.0.1");\npref("network.proxy.ssl_port", 8080);\npref("network.proxy.type", 1);\npref("network.trr.mode", 5);\npref("network.proxy.allow_hijacking_localhost", true);' > /etc/firefox-esr/firefox.cfg
+
+RUN printf '// IMPORTANT: Start your code on the 2nd line\npref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true);\npref("network.proxy.backup.ssl", "");\npref("network.proxy.backup.ssl_port", 0);\npref("network.proxy.http", "127.0.0.1");\npref("network.proxy.http_port", 8080);\npref("network.proxy.share_proxy_settings", true);\npref("network.proxy.ssl", "127.0.0.1");\npref("network.proxy.ssl_port", 8080);\npref("network.proxy.type", 1);\npref("network.trr.mode", 5);\npref("network.proxy.allow_hijacking_localhost", true);' >> /etc/firefox-esr/firefox-esr.js
 
 
 USER hacker
