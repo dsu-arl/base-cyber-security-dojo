@@ -11,3 +11,5 @@ modules:
   name: Cyber History
 - id: osint
   name: OSINT
+- id: web
+  name: Web
