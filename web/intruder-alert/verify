@@ -35,7 +35,8 @@ def index():
 def tryXSS():
     for item in request.form.items():
         if (item[1].strip() != ''):
-            if(int(item[0]) == vulnBox and item[1].startswith(vulnPayload)):    
+            if(int(item[0]) == vulnBox and item[1].startswith(vulnPayload)):
+                return render_template("unsafeMirror.html", payload=item[1])    
                 print("success")
             print(item[0])
             return render_template('safeMirror.html', payload=item[1])
@@ -54,10 +55,12 @@ def checkSolution():
 
 
 if __name__ == '__main__':
-    xssTypes = ['<img', '<image', '<video', '<script', '<iframe', '<object']
+    xssTypes = ['<img', '<image', '<video', '<script', '<iframe', '<svg']
 
     vulnBox = random.randint(1,20)
     vulnPayload = random.choice(xssTypes)
 
+    print(vulnBox)
+    print(vulnPayload)
     secret = genSecret(16)
     app.run()
