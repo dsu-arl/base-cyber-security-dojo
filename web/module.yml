@@ -1,0 +1,7 @@
+name: Web
+challenges:
+- id: intro-to-burpsuite
+  name: Intro to BurpSuite
+  allow_privileged: false
+  image: adbabdsu/burpimage
+
