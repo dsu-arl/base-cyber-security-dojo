@@ -37,15 +37,14 @@ def tryXSS():
         if (item[1].strip() != ''):
             if(int(item[0]) == vulnBox and item[1].startswith(vulnPayload)):
                 return render_template("unsafeMirror.html", payload=item[1])    
-                print("success")
-            print(item[0])
             return render_template('safeMirror.html', payload=item[1])
 
 @app.route('/checkSolution', methods=['POST'])
 def checkSolution():
+    global vulnBox,vulnPayload 
     textbox = request.form.get("boxNum")
     payload = request.form.get("payload")
-    if(textbox == vulnBox and payload.startswith(vulnPayload)):
+    if(int(textbox) == int(vulnBox) and payload.startswith(vulnPayload)):
         flag = print_flag(secret)
         return render_template('success.html', flag=flag)
     else:
@@ -60,7 +59,7 @@ if __name__ == '__main__':
     vulnBox = random.randint(1,20)
     vulnPayload = random.choice(xssTypes)
 
-    print(vulnBox)
-    print(vulnPayload)
+    # print(vulnBox)
+    # print(vulnPayload)
     secret = genSecret(16)
     app.run()
