@@ -4,4 +4,9 @@ challenges:
   name: Intro to BurpSuite
   allow_privileged: false
   image: adbabdsu/burpimage
+- id: intruder-alert
+  name: Intruder Alert!
+  allow_privileged: false
+  image: adbabdsu/burpimage
+
 
