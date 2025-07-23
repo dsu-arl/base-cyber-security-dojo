@@ -44,7 +44,7 @@ def main():
 	elif user_string == base64_string:
 		print("That's correct!")
 		print_flag()
-    else:
+	else:
         print("Hm, that's not quite right. Are you encoding the string exactly as displayed? (capitalization matters!)")
 
 main()
