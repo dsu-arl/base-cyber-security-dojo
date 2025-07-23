@@ -34,8 +34,9 @@ def main():
     
     # Encode the word
     encoded_word = rail_fence_encode(word_to_encode, num_rails)
-    print('Encoded word: ', encoded_word)
-    
+    #print('Encoded word: ', encoded_word)
+    # Commented this line ^ out because it gives away the answer
+
     print("Welcome to the Rail Fence Cipher Challenge!")
     print(f"\nYour task is to encode this word: {word_to_encode}")
     print(f"Using {num_rails} rails")
