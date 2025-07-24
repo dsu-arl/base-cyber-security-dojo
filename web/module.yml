@@ -1,0 +1,12 @@
+name: Web
+challenges:
+- id: intro-to-burpsuite
+  name: Intro to BurpSuite
+  allow_privileged: false
+  image: adbabdsu/burpimage
+- id: intruder-alert
+  name: Intruder Alert!
+  allow_privileged: false
+  image: adbabdsu/burpimage
+
+
