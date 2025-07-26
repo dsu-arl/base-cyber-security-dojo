@@ -1,0 +1,35 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+import sys
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Add your imports and other code below here
+def print_instructions():
+    print("Welcome to the Secret Message in the Photo challenge!")
+    print("You found a suspicious dog picture (suspicious_doggo.jpg) hiding a secret message.")
+    print("Find the flag in the extracted file, then enter it below.")
+
+def main():
+    print_instructions()
+
+    try:
+        answer = input("Enter the flag you found in the picture: ").strip()
+    except KeyboardInterrupt:
+        exit(0)
+
+    correct_flag = "FLAG{Cy3h3r_Cam9}"
+    if answer == correct_flag:
+        print("That is correct!")
+        print("\nHere is your final flag!")
+        print_flag()
+    else:
+        print("Ope, that's not quite right. Try running 'steghide extract -sf secret.jpg -p The password is in the secret.txt file' and check the extracted file.")
+
+if __name__ == "__main__":
+    main()

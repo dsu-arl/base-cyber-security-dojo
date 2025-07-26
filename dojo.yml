@@ -13,3 +13,5 @@ modules:
   name: OSINT
 - id: web
   name: Web
+- id: forensics
+  name: Forensics

@@ -1,0 +1,36 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+import sys
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Add your imports and other code below here
+def print_instructions():
+    print("Welcome to the Hidden Treasure in the Picture challenge!")
+    print("You're a digital archaeologist exploring treasure.png, which hides a flag split into four parts.")
+    print("Combine the parts to form the flag, which starts with 'FLAG{'.")
+    print("Enter the complete flag below to unlock the final flag.")
+
+def main():
+    print_instructions()
+
+    try:
+        answer = input("Enter the complete flag you found in the image: ").strip()
+    except KeyboardInterrupt:
+        exit(0)
+
+    correct_flag = "FLAG{hidden_treasure_found}"
+    if answer == correct_flag:
+        print("That is correct!")
+        print("\nHere is your final flag!")
+        print_flag()
+    else:
+        print("Ope, that's not quite right. Try combining the flag parts from all tools again.")
+
+if __name__ == "__main__":
+    main()
