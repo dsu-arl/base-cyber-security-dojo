@@ -1,0 +1,17 @@
+name: pwn
+challenges:
+- id: buffer-overflow
+  name: Buffer Overflow
+  allow_privileged: false
+- id: magic-number
+  name: Magic Number
+  allow_privileged: false
+- id: reverse-password-plaintext
+  name: Reverse Plaintext Password
+  allow_privileged: false
+- id: reverse-password-backward
+  name: Reverse Backward Password
+  allow_privileged: false
+- id: reverse-password-cipher
+  name: Reverse Cipher Password
+  allow_privileged: false
