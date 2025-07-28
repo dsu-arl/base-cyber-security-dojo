@@ -1,0 +1,84 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+import sys
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Add your imports and other code below here
+def create_polybius_square():
+    """Create a 5x5 Polybius square as a dictionary mapping letters to row-column pairs."""
+    square = {}
+    alphabet = 'ABCDEFGHIKLMNOPQRSTUVWXYZ'  # Note: I/J combined, so J is omitted
+    for idx, letter in enumerate(alphabet):
+        row = (idx // 5) + 1  # 1-based indexing
+        col = (idx % 5) + 1
+        square[letter] = f"{row}{col}"
+    square['J'] = square['I']  # Map J to the same cell as I
+    return square
+
+def polybius_encode(text):
+    """Encode text using the Polybius square."""
+    text = text.upper()
+    square = create_polybius_square()
+    encoded = []
+    for char in text:
+        if char.isalpha():
+            encoded.append(square.get(char, ''))  # Get row-column pair, skip invalid chars
+    return ''.join(encoded)
+
+
+def encode_answer(answer):
+    # Encoding process:
+    # Answer -> Polybius -> Binary -> Substitution (0 = N, 1 = Y)
+    
+    # Decoding process:
+    # Substitution (N = 0, Y = 1) -> Binary -> Polybius -> Answer
+
+    # Polybius square
+    encoded_word = polybius_encode(answer)
+    encoded_word = [int(encoded_word[i:i+2]) for i in range(0, len(encoded_word), 2)] # split into list of 2 digit numbers
+
+    # Convert to Binary
+    encoded_word = [format(number, '08b') for number in encoded_word]
+    encoded_word = ''.join(encoded_word)
+
+    # Substitution (0 = N, 1 = Y)
+    encoded_word = ''.join('N' if bit == '0' else 'Y' for bit in encoded_word)
+
+    return encoded_word
+
+
+def main():
+    answer = 'PROGRAMMINGISFUN'
+
+    RED_TEXT_CODE = '\033[31m'
+    GREEN_TEXT_CODE = '\033[32m'
+    RESET_TEXT_CODE = '\033[0m'
+
+    encoded_word = encode_answer(answer)
+    
+    print("Type 'quit' to exit.")
+    print('String to decode:', encoded_word)
+
+    while True:
+        user_answer = input('Decoded answer: ')
+
+        if user_answer.lower() == 'quit':
+            break
+
+        if user_answer == answer:
+            print(f'{GREEN_TEXT_CODE}Correct!{RESET_TEXT_CODE}')
+            print("Congragulations! You have passed this challenge! Here is your flag:")
+            print_flag()
+            break
+        else:
+            print(f'{RED_TEXT_CODE}Incorrect{RESET_TEXT_CODE}')
+
+
+if __name__ == '__main__':
+    main()

@@ -1,10 +1,10 @@
 name: Encoding 
 challenges:
 - id: caesar-cipher-encryption
-  name: Caesar Cipher Encryption
+  name: Caesar Cipher Encoding
   allow_privileged: false
 - id: caesar-cipher-decryption
-  name: Caesar Cipher Decryption
+  name: Caesar Cipher Decoding
   allow_privileged: false
 - id: caesar-cipher-scripting
   name: Caesar Cipher Scripting
@@ -13,8 +13,65 @@ challenges:
   name: Caesar Cipher Brute Force
   allow_privileged: false
 - id: substitution-cipher-encryption
-  name: Substitution Cipher Encryption
+  name: Substitution Cipher Encoding
   allow_privileged: false
 - id: substitution-cipher-decryption
-  name: Substitution Cipher Decryption
+  name: Substitution Cipher Decoding
+  allow_privileged: false
+- id: ascii-encoding
+  name: ASCII Encoding
+  allow_privileged: false
+- id: ascii-decoding
+  name: ASCII Decoding
+  allow_privileged: false
+- id: hexadecimal-encoding
+  name: Hexadecimal - Encoding
+  allow_privileged: false
+- id: hexadecimal-decoding
+  name: Hexadecimal - Decoding
+  allow_privileged: false
+- id: binary-encoding
+  name: Binary Encoding
+  allow_privileged: false
+- id: binary-decoding
+  name: Binary Decoding
+  allow_privileged: false
+- id: morse-code-encoding
+  name: Morse Code - Encoding
+  allow_privileged: false
+- id: morse-code-decoding
+  name: Morse Code - Decoding
+  allow_privileged: false
+- id: base64-encoding
+  name: Base64 - Encoding
+  allow_privileged: false
+- id: base64-decoding
+  name: Base64 - Decoding
+  allow_privileged: false
+- id: playfair-encoding
+  name: Playfair - Encoding
+  allow_privileged: false
+- id: playfair-decoding
+  name: Playfair - Decoding
+  allow_privileged: false
+- id: polybius-square-encoding
+  name: Polybius Square - Encoding
+  allow_privileged: false
+- id: polybius-square-decoding
+  name: Polybius Square - Decoding
+  allow_privileged: false
+- id: rail-fence-encoding
+  name: Rail Fence (Zigzag) - Encoding
+  allow_privileged: false
+- id: rail-fence-decoding
+  name: Rail Fence (Zigzag) - Decoding
+  allow_privileged: false
+- id: easy-challenge-1
+  name: 'Easy Challenge #1'
+  allow_privileged: false
+- id: medium-challenge-1
+  name: 'Medium Challenge #1'
+  allow_privileged: false
+- id: hard-challenge-1
+  name: 'Hard Challenge #1'
   allow_privileged: false

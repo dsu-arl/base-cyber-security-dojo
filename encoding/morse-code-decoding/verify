@@ -1,0 +1,76 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+import sys
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Add your imports and other code below here
+import random
+
+morse_dict = {
+    'A': '.-',    'B': '-...',  'C': '-.-.',  'D': '-..',   'E': '.',
+    'F': '..-.',  'G': '--.',   'H': '....',  'I': '..',    'J': '.---',
+    'K': '-.-',   'L': '.-..',  'M': '--',    'N': '-.',    'O': '---',
+    'P': '.--.',  'Q': '--.-',  'R': '.-.',   'S': '...',   'T': '-',
+    'U': '..-',   'V': '...-',  'W': '.--',   'X': '-..-',  'Y': '-.--',
+    'Z': '--..'
+}
+
+
+def generate_word() -> str:
+    word_bank = [
+        'APPLE', 'BANANA', 'CHAIR', 'TABLE', 'HOUSE', 'CAR', 'BOOK', 'PEN', 'DOG', 'CAT',
+        'TREE', 'FLOWER', 'SKY', 'CLOUD', 'RIVER', 'MOUNTAIN', 'SUN', 'MOON', 'STAR', 'BIRD',
+        'FISH', 'ROAD', 'BRIDGE', 'WINDOW', 'DOOR', 'WALL', 'FLOOR', 'CEILING', 'LAMP', 'CLOCK',
+        'PHONE', 'COMPUTER', 'KEYBOARD', 'MOUSE', 'SCREEN', 'BAG', 'SHOE', 'HAT', 'SHIRT', 'PANTS',
+        'SOCK', 'JACKET', 'GLASS', 'CUP', 'PLATE', 'FORK', 'SPOON', 'KNIFE', 'BOWL', 'BOTTLE'
+    ]
+    return random.choice(word_bank)
+
+
+def encrypt_word(word: str) -> str:
+    global morse_dict
+    encrypted_word = ''
+    for c in word:
+        encrypted_word += (morse_dict[c] + ' ')
+
+    return encrypted_word.strip()
+
+
+def main():
+    print('Welcome to the Morse Code Decoding Challenge!')
+    print('NOTE: Do not put any spaces between letters. They should form a single word.')
+
+    print('\nUse the following table to assist you with decoding your message:')
+    print('A .-    B -...  C -.-.  D -..   E .     F ..-.  G --.   H ....  I ..    J .---')
+    print('K -.-   L .-..  M --    N -.    O ---   P .--.  Q --.-  R .-.   S ...   T -')
+    print('U ..-   V ...-  W .--   X -..-  Y -.--  Z --..\n')
+
+    print("To exit, type 'quit'.")
+
+    answer = generate_word()
+    encrypted_word = encrypt_word(answer)
+    print('Your word to decode:', encrypted_word)
+
+    while True:
+        user_answer = input(f'Decoded Answer: ').strip()
+
+        if user_answer == 'quit':
+            break
+
+        if user_answer.lower() == answer.lower():
+            print('Correct!')
+            print("Congragulations! You have passed this challenge! Here is your flag:")
+            print_flag()
+            break
+        else:
+            print('Incorrect')
+
+
+if __name__ == '__main__':
+    main()
