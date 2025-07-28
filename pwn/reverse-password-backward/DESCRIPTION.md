@@ -28,4 +28,4 @@ When you have finished your analysis, follow the steps in the Challenge Steps se
 2. Open a file by pressing ```ctrl```+```o``` and in the text field type ```/challenge/backwardPassword.py```.
 3. Read the source code to identify the password.
 4. When you have the password open a terminal by pressing ```ctrl```+```~``` and in the terminal type ```cd /challenge```.
-5. Run ```python verify``` and enter the password to retrieve the flag.
+5. Run ```verify``` and enter the password to retrieve the flag.
