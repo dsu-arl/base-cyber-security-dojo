@@ -1,0 +1,27 @@
+name: Forensics
+image: shawdynasty/cyberher-dojo-forensics
+challenges:
+- id: grep-master
+  name: Grep Master
+  allow_privileged: false
+- id: unlock-the-vault
+  name: Unlock the Vault
+  allow_privileged: false
+- id: locked-treasure-chest
+  name: Locked Treasure Chest
+  allow_privileged: false
+- id: the-artists-clue
+  name: The Artist's Clue
+  allow_privileged: false
+- id: code-cracker
+  name: Code Cracker
+  allow_privileged: false
+- id: chatty-server
+  name: Chatty Server
+  allow_privileged: false
+- id: secret-message-in-photo
+  name: Secret Message in Photo
+  allow_privileged: false
+- id: hidden-treasures-in-the-picture
+  name: Hidden Treasures in the Picture
+  allow_privileged: false

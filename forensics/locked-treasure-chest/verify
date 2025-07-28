@@ -1,0 +1,35 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+import sys
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Add your imports and other code below here
+def print_instructions():
+    print("Welcome to the Locked Treasure Chest challenge!")
+    print("You found a digital treasure chest (treasure.zip) hiding a flag.")
+    print("Unzip it to check its contents, but look for secrets in the zip file's metadata.")
+
+def main():
+    print_instructions()
+
+    try:
+        answer = input("Enter the flag you found in the treasure chest: ").strip()
+    except KeyboardInterrupt:
+        exit(0)
+
+    correct_flag = "FLAG{hidden_comment_secret}"
+    if answer == correct_flag:
+        print("That is correct!")
+        print("\nHere is your final flag!")
+        print_flag()
+    else:
+        print("Ope, that's not quite right. Try inspecting treasure.zip with unzip -l.")
+
+if __name__ == "__main__":
+    main()

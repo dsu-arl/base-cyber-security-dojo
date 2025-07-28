@@ -1,0 +1,36 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+import sys
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Add your imports and other code below here
+def print_instructions():
+    print("Welcome to the The Artist Clue challenge!")
+    print("You’re investigating the art.jpg.")
+    print("Using exiftool search the art.jpg to see the artist.")
+
+def main():
+    print_instructions()
+
+    try:
+        answer = input("Enter the flag you found in the art.jpg file: ").strip()
+    except KeyboardInterrupt:
+        exit(0)
+
+    correct_flag = "FLAG{meta_art_secret}"
+    if answer == correct_flag:
+        print("That is correct!")
+        print("\nHere is your final flag!")
+        print_flag()
+    else:
+        print("Ope, that's not quite right. Try running 'exiftool art.jpg' to find the flag.")
+
+if __name__ == "__main__":
+    main()
+    
