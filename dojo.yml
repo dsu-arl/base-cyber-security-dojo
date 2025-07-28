@@ -15,5 +15,6 @@ modules:
   name: Web
 - id: forensics
   name: Forensics
+  image: whatupdoc6130/pwncollege:bufferoverflowv1
 - id: pwn
   name: PWN
