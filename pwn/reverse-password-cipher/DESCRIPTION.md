@@ -26,8 +26,9 @@ To go from the ciphertext to the plaintext, you must know the number of rotation
 Your goal is to identify how many times the alphabet must be rotated to generate the correct cipherbet, which is then used to decode the ciphertext. The ciphertext is comprised of human-readable text: there will be no mistaking the correct passphrase when it is retrieved. Once you have obtained the plaintext passphrase, enter it into the ```verify.py``` script to retrieve the flag.
 
 ## Challenge Steps
-1. Open a terminal in the Desktop
-2. Navigate to the ```/challenge``` directory (Hint: Type ```cd /challenge``` and press ```Enter```)
-3. Use the ```ls``` command to find the challenge file (Hint: it is NOT the DESCRIPTION.md file)
-4. To run the challenge, type the filename and press ```Enter```.
-5. Submit your flag!
+## Challenge Steps
+1. Select the "VSCode Workspace" option from the challenge menu.
+2. Open a file by pressing ```ctrl```+```o``` and in the text field type ```/challenge/cipher.py```.
+3. Read the source code to identify the password.
+4. When you have the password open a terminal by pressing ```ctrl```+```~``` and in the terminal type ```cd /challenge```.
+5. Run ```verify``` and enter the password to retrieve the flag.
