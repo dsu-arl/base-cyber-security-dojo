@@ -1,4 +1,5 @@
 name: pwn
+image: whatupdoc6130/pwncollege:bufferoverflowv1
 challenges:
 - id: buffer-overflow
   name: Buffer Overflow
