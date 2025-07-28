@@ -17,5 +17,6 @@ You are done when the ```magic_numbers``` program emits a string; there will be 
 
 ## Challenge Steps
 1. Open a terminal
-2. Use `strings` or `gdb` to help you find the magic number and receive the string
+2. Use `strings` or `gdb` on the `/challenge/magic_numbers` file to help you find the magic number (note that the `/challenge` path may be necessary when using tools)
+3. Run the `magic_numbers` program, and enter the magic number to get the string
 3. Run `verify` and enter the string to receive your flag!
