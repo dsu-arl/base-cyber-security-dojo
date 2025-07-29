@@ -1,0 +1,72 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3 -I
+import sys
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Add your imports and other code below here
+from flask import Flask, request, render_template
+import hashlib
+import random
+
+
+
+items = [
+    {"name": "Haunted Toaster", "price": "$13.66", "seller": "spookyToast42", "bids": 7, "end": "2025-06-14"},
+    {"name": "Invisible Ink for Elephants", "price": "$3.99", "seller": "trunkWriter", "bids": 2, "end": "2025-06-11"},
+    {"name": "Slightly Used Time Machine", "price": "$4,200.00", "seller": "paradoxdealer", "bids": 12, "end": "2025-06-17"},
+    {"name": "Left Shoe (Cursed)", "price": "$9.99", "seller": "halfAFoot", "bids": 3, "end": "2025-06-15"},
+    {"name": "Glow-in-the-Dark Bacon", "price": "$18.45", "seller": "radPigz", "bids": 5, "end": "2025-06-12"},
+    {"name": "Philosophical Rock", "price": "$2.49", "seller": "thinkston", "bids": 1, "end": "2025-06-13"},
+    {"name": "Box of Mysterious Screams", "price": "$66.60", "seller": "hauntedCratez", "bids": 9, "end": "2025-06-16"},
+    {"name": "Air Guitar (Mint Condition)", "price": "$0.01", "seller": "shreds4invisible", "bids": 21, "end": "2025-06-12"},
+    {"name": "Emergency Clown Nose", "price": "$4.44", "seller": "circusSurvival", "bids": 6, "end": "2025-06-14"},
+    {"name": "Banana Phone (Peel-to-Talk)", "price": "$19.95", "seller": "ringRingFruit", "bids": 11, "end": "2025-06-13"},
+    {"name": "Cube of Confusion", "price": "$8.88", "seller": "whaaaGuy", "bids": 4, "end": "2025-06-18"},
+    {"name": "Unicorn Hairball", "price": "$27.50", "seller": "fluffMage", "bids": 3, "end": "2025-06-16"},
+    {"name": "Internet in a Jar", "price": "$14.95", "seller": "memezKeeper", "bids": 5, "end": "2025-06-19"},
+    {"name": "Pet Rock Escape Kit", "price": "$6.66", "seller": "geologyGoneRogue", "bids": 2, "end": "2025-06-20"},
+    {"name": "Leftover Leftovers", "price": "$0.50", "seller": "foodTimeLoop", "bids": 1, "end": "2025-06-11"},
+    {"name": "Shirt for Your Thoughts", "price": "$9.99", "seller": "ideaWear", "bids": 4, "end": "2025-06-17"},
+    {"name": "Bluetooth-Enabled Potato", "price": "$15.00", "seller": "taterTech", "bids": 6, "end": "2025-06-15"},
+    {"name": "Reverse Gravity Boots", "price": "$250.00", "seller": "skyWalker70", "bids": 10, "end": "2025-06-14"},
+    {"name": "DIY Loch Ness Detection Kit", "price": "$22.22", "seller": "cryptoHunter", "bids": 7, "end": "2025-06-18"},
+    {"name": "Quantum Sock (Single)", "price": "$7.77", "seller": "uncertainApparel", "bids": 9, "end": "2025-06-20"},
+]
+
+app = Flask(__name__)
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
+
+@app.route('/search-listings', methods=['GET'])
+def searchListings():
+    search = request.args.get('search')
+    admin = request.args.get('admin')
+
+    
+    if(admin == "true" or admin == "True"):
+        admin = True
+        print_flag()
+    else:
+        admin = False
+
+
+    random_items = random.sample(items, 5)
+    return render_template('searchListings.html', items=random_items, admin=admin)
+
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template('about.html')
+
+@app.route('/contact', methods=['GET'])
+def contact():
+    return render_template('contact.html')
+
+if __name__ == '__main__':
+    app.run()

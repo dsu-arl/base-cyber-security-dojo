@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swiss Army Button</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #f9ccff;
+        }
+    </style>
+</head>
+<body>
+    <h2>The only button you'll ever need.</h2>
+    <p>Welcome to the homepage of the legendary Swiss Army Button! It can do everything you could ever want, maybe even your laundry. Select a feature to get started.</p>
+    <form id="swissArmyForm" action="/doButton" method="post">
+        <select name="selectFeature" id="selectFeature">
+            <option value="" disabled selected required></option>
+            <option value="calculator">Calculator</option>
+            <option value="advice">Dating Advice</option>
+            <option value="frogpic">Show Frog Picture</option>
+            <option value="chess">Chess Game</option>
+            <option value="ctf" disabled>CTF Flag</option>
+            <option value="lorem">Lorem Ipsum</option>
+            <option value="video">Ancient Video Archive</option>
+        </select>
+        <button type="submit">Confirm Selection</button>
+
+</body>
+</html>
