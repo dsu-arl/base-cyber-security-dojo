@@ -8,5 +8,6 @@ challenges:
   name: Intruder Alert!
   allow_privileged: false
   image: adbabdsu/burpimage
-
-
+- id: creepy-crawly
+  name: Creepy Crawly
+  allow_privileged: false
