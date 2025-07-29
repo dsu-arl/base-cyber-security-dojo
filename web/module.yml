@@ -11,3 +11,4 @@ challenges:
 - id: creepy-crawly
   name: Creepy Crawly
   allow_privileged: false
+  image: adbabdsu/burpimage
