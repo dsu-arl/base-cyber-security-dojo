@@ -15,3 +15,5 @@ modules:
   name: Web
 - id: forensics
   name: Forensics
+- id: pwn
+  name: PWN
