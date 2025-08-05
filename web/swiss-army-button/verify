@@ -1,0 +1,43 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3 -I
+import sys
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            return f.read()
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Add your imports and other code below here
+from flask import Flask, request, render_template
+
+
+app = Flask(__name__)
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
+
+@app.route('/doButton', methods=['POST'])
+def doButton():
+    feature = request.form['selectFeature']
+    if(feature == 'ctf'):
+        f = print_flag()
+        return render_template('flag.html', flag=f)
+    elif(feature == "calculator"):
+        return render_template('calculator.html')
+    elif(feature == "advice"):
+        return render_template('advice.html')
+    elif(feature == "frogpic"):
+        return render_template('frog.html')
+    elif(feature == "chess"):
+        return render_template('chess.html')
+    elif(feature == "lorem"):
+        return render_template('lorem.html')
+    elif(feature == "video"):
+        return render_template('archive.html')
+    return render_template('index.html')
+
+
+if __name__ == '__main__':
+    app.run()

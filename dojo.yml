@@ -1,7 +1,7 @@
 id: cyber-security
 name: Cyber Security
-type: hidden
-password: IntroToCyber
+type: base
+image: annaopsahl/pc-linux
 modules:
 - id: linux-basics
   name: Linux Basics
@@ -13,3 +13,7 @@ modules:
   name: OSINT
 - id: web
   name: Web
+- id: forensics
+  name: Forensics
+- id: pwn
+  name: PWN

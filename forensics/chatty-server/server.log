@@ -1,0 +1,500 @@
+[2025-06-01 08:01:07] alice - updated profile
+[2025-06-01 08:03:22] diana - viewed dashboard
+[2025-06-01 08:04:24] bob - checked notifications
+[2025-06-01 08:08:10] alice - logged in
+[2025-06-01 08:09:07] diana - downloaded report
+[2025-06-01 08:13:35] alice - created new entry
+[2025-06-01 08:15:26] grace - downloaded report
+[2025-06-01 08:19:25] eve - logged in
+[2025-06-01 08:20:56] grace - changed password
+[2025-06-01 08:23:28] charlie - downloaded report
+[2025-06-01 08:26:30] bob - logged out
+[2025-06-01 08:29:54] bob - changed password
+[2025-06-01 08:33:00] eve - logged in
+[2025-06-01 08:37:05] bob - uploaded image
+[2025-06-01 08:37:55] eve - reset MFA token
+[2025-06-01 08:41:10] diana - logged out
+[2025-06-01 08:41:43] diana - updated profile
+[2025-06-01 08:42:33] diana - logged out
+[2025-06-01 08:45:57] eve - deleted record
+[2025-06-01 08:49:13] charlie - changed password
+[2025-06-01 08:52:24] diana - reset MFA token
+[2025-06-01 08:54:50] bob - checked notifications
+[2025-06-01 08:56:27] diana - viewed dashboard
+[2025-06-01 09:00:33] grace - updated profile
+[2025-06-01 09:05:28] diana - reset MFA token
+[2025-06-01 09:08:24] alice - downloaded report
+[2025-06-01 09:08:50] frank - uploaded image
+[2025-06-01 09:11:17] bob - downloaded report
+[2025-06-01 09:16:17] frank - downloaded report
+[2025-06-01 09:20:42] grace - reset MFA token
+[2025-06-01 09:24:46] charlie - updated profile
+[2025-06-01 09:26:07] diana - created new entry
+[2025-06-01 09:30:52] eve - checked notifications
+[2025-06-01 09:34:41] grace - changed password
+[2025-06-01 09:36:43] charlie - created new entry
+[2025-06-01 09:41:05] bob - logged in
+[2025-06-01 09:42:11] charlie - reset MFA token
+[2025-06-01 09:43:42] grace - checked notifications
+[2025-06-01 09:44:24] grace - uploaded image
+[2025-06-01 09:48:33] eve - created new entry
+[2025-06-01 09:48:48] bob - reset MFA token
+[2025-06-01 09:53:32] eve - reset MFA token
+[2025-06-01 09:56:36] bob - updated profile
+[2025-06-01 10:00:28] charlie - deleted record
+[2025-06-01 10:00:39] eve - created new entry
+[2025-06-01 10:02:20] bob - reset MFA token
+[2025-06-01 10:05:02] diana - viewed dashboard
+[2025-06-01 10:08:23] charlie - created new entry
+[2025-06-01 10:13:04] alice - checked notifications
+[2025-06-01 10:15:59] heidi - logged in
+[2025-06-01 10:17:06] frank - updated profile
+[2025-06-01 10:19:18] alice - downloaded report
+[2025-06-01 10:24:18] bob - logged out
+[2025-06-01 10:28:36] bob - created new entry
+[2025-06-01 10:29:50] charlie - reset MFA token
+[2025-06-01 10:34:03] charlie - updated profile
+[2025-06-01 10:38:43] grace - downloaded report
+[2025-06-01 10:43:29] diana - updated profile
+[2025-06-01 10:47:03] frank - deleted record
+[2025-06-01 10:51:37] heidi - logged out
+[2025-06-01 10:53:53] diana - logged out
+[2025-06-01 10:56:56] alice - checked notifications
+[2025-06-01 11:01:49] diana - checked notifications
+[2025-06-01 11:03:51] alice - logged out
+[2025-06-01 11:04:31] diana - logged out
+[2025-06-01 11:04:57] frank - logged out
+[2025-06-01 11:09:30] diana - updated profile
+[2025-06-01 11:13:48] diana - created new entry
+[2025-06-01 11:15:05] heidi - downloaded report
+[2025-06-01 11:19:17] grace - downloaded report
+[2025-06-01 11:20:15] bob - reset MFA token
+[2025-06-01 11:24:05] frank - uploaded image
+[2025-06-01 11:27:45] heidi - logged in
+[2025-06-01 11:28:45] alice- uploaded FLAG{FAKE FLAG} image
+[2025-06-01 11:31:48] bob - downloaded report
+[2025-06-01 11:33:36] diana - created new entry
+[2025-06-01 11:37:35] charlie- uploaded FLAG{FAKE FLAG} image
+[2025-06-01 11:39:18] eve - deleted record
+[2025-06-01 11:41:35] bob - deleted record
+[2025-06-01 11:46:26] bob - logged in
+[2025-06-01 11:51:12] alice - logged out
+[2025-06-01 11:53:23] charlie- uploaded FLAG{FAKE FLAG} image
+[2025-06-01 11:57:41] heidi - downloaded report
+[2025-06-01 12:01:16] alice - viewed dashboard
+[2025-06-01 12:04:40] alice- uploaded FLAG{FAKE FLAG} image
+[2025-06-01 12:07:05] heidi - updated profile
+[2025-06-01 12:10:51] heidi - viewed dashboard
+[2025-06-01 12:12:38] eve - downloaded report
+[2025-06-01 12:13:17] alice - changed password
+[2025-06-01 12:13:56] alice - checked notifications
+[2025-06-01 12:18:10] charlie - logged in
+[2025-06-01 12:22:40] bob - viewed dashboard
+[2025-06-01 12:23:25] bob - reset MFA token
+[2025-06-01 12:25:35] grace - logged out
+[2025-06-01 12:27:51] alice - checked notifications
+[2025-06-01 12:28:42] grace - reset MFA token
+[2025-06-01 12:33:41] frank - updated profile
+[2025-06-01 12:35:35] frank - downloaded report
+[2025-06-01 12:38:00] grace - viewed dashboard
+[2025-06-01 12:40:43] heidi - changed password
+[2025-06-01 12:41:30] alice - deleted record
+[2025-06-01 12:46:28] bob - logged out
+[2025-06-01 12:51:13] diana - created new entry
+[2025-06-01 12:53:38] charlie - changed password
+[2025-06-01 12:54:23] diana - changed password
+[2025-06-01 12:56:58] charlie - deleted record
+[2025-06-01 13:01:46] eve - checked notifications
+[2025-06-01 13:06:26] alice - reset MFA token
+[2025-06-01 13:11:19] eve - reset MFA token
+[2025-06-01 13:12:22] charlie - updated profile
+[2025-06-01 13:13:31] bob - created new entry
+[2025-06-01 13:15:00] eve - updated profile
+[2025-06-01 13:16:57] frank - downloaded report
+[2025-06-01 13:19:22] heidi - updated profile
+[2025-06-01 13:19:58] bob - reset MFA token
+[2025-06-01 13:23:44] eve - logged in
+[2025-06-01 13:23:55] frank - viewed dashboard
+[2025-06-01 13:26:19] charlie - deleted record
+[2025-06-01 13:31:11] grace - created new entry
+[2025-06-01 13:31:25] bob - logged out
+[2025-06-01 13:32:51] alice - changed password
+[2025-06-01 13:37:43] charlie- uploaded FLAG{FAKE FLAG} image
+[2025-06-01 13:38:58] alice - updated profile
+[2025-06-01 13:42:14] alice - changed password
+[2025-06-01 13:44:11] diana - reset MFA token
+[2025-06-01 13:45:13] frank - created new entry
+[2025-06-01 13:48:51] charlie - downloaded report
+[2025-06-01 13:50:24] charlie- uploaded FLAG{FAKE FLAG} image
+[2025-06-01 13:50:46] charlie - changed password
+[2025-06-01 13:54:26] diana - updated profile
+[2025-06-01 13:55:57] bob - uploaded FLAG{log_
+[2025-06-01 13:56:26] heidi - downloaded report
+[2025-06-01 13:58:18] heidi - changed password
+[2025-06-01 14:01:04] diana - downloaded report
+[2025-06-01 14:01:26] diana - uploaded FLAG{FAKE FLAG} FLAG{FAKE FLAG}
+[2025-06-01 14:04:24] eve - logged out
+[2025-06-01 14:06:56] frank - reset MFA token
+[2025-06-01 14:11:26] grace - reset MFA token
+[2025-06-01 14:16:10] frank - logged in
+[2025-06-01 14:17:19] eve - viewed dashboard
+[2025-06-01 14:19:44] alice - logged out
+[2025-06-01 14:23:36] frank - changed password
+[2025-06-01 14:27:29] bob - uploaded search_
+[2025-06-01 14:29:16] eve - logged in
+[2025-06-01 14:33:09] alice - created new entry
+[2025-06-01 14:37:54] diana - changed password
+[2025-06-01 14:41:44] bob - reset MFA token
+[2025-06-01 14:44:43] frank - reset MFA token
+[2025-06-01 14:45:56] eve - created new entry
+[2025-06-01 14:48:44] grace - changed password
+[2025-06-01 14:52:20] eve - created new entry
+[2025-06-01 14:53:35] diana - uploaded FLAG{FAKE FLAG} FLAG{FAKE FLAG}
+[2025-06-01 14:56:59] charlie - checked notifications
+[2025-06-01 14:59:43] grace - created new entry
+[2025-06-01 14:59:53] eve - updated profile
+[2025-06-01 15:01:50] grace - checked notifications
+[2025-06-01 15:04:44] heidi - deleted record
+[2025-06-01 15:08:40] diana - created new entry
+[2025-06-01 15:12:52] charlie - reset MFA token
+[2025-06-01 15:13:45] eve - created new entry
+[2025-06-01 15:16:46] bob - downloaded report
+[2025-06-01 15:19:34] diana - downloaded report
+[2025-06-01 15:20:59] alice - logged in
+[2025-06-01 15:23:14] heidi - checked notifications
+[2025-06-01 15:24:01] heidi - uploaded Wrong
+[2025-06-01 15:25:50] grace - deleted record
+[2025-06-01 15:29:24] diana - viewed dashboard
+[2025-06-01 15:29:36] bob - uploaded success}
+[2025-06-01 15:31:38] charlie - created new entry
+[2025-06-01 15:35:45] alice - created new entry
+[2025-06-01 15:38:02] bob - deleted record
+[2025-06-01 15:39:20] heidi - reset MFA token
+[2025-06-01 15:44:01] frank - deleted record
+[2025-06-01 15:48:29] grace - created new entry
+[2025-06-01 15:52:27] charlie - deleted record
+[2025-06-01 15:56:27] eve - downloaded report
+[2025-06-01 15:58:58] heidi - reset MFA token
+[2025-06-01 16:01:10] eve - deleted record
+[2025-06-01 16:01:59] eve - downloaded report
+[2025-06-01 16:04:28] frank - changed password
+[2025-06-01 16:09:14] bob - viewed dashboard
+[2025-06-01 16:10:41] diana - uploaded FLAG{FAKE FLAG} FLAG{FAKE FLAG}
+[2025-06-01 16:12:09] diana - logged out
+[2025-06-01 16:15:51] grace - changed password
+[2025-06-01 16:20:38] heidi - uploaded Not Heidi
+[2025-06-01 16:21:19] diana - uploaded FLAG{FAKE FLAG} FLAG{FAKE FLAG}
+[2025-06-01 16:24:48] alice - checked notifications
+[2025-06-01 16:28:12] heidi - logged in
+[2025-06-01 16:31:22] diana - uploaded FLAG{FAKE FLAG} FLAG{FAKE FLAG} image
+[2025-06-01 16:35:06] diana - deleted record
+[2025-06-01 16:37:08] diana - uploaded FLAG{FAKE FLAG} FLAG{FAKE FLAG} flag{fake
+[2025-06-01 16:41:26] alice- uploaded FLAG{FAKE FLAG} image
+[2025-06-01 16:44:28] grace - viewed dashboard
+[2025-06-01 16:48:37] charlie - checked notifications
+[2025-06-01 16:53:20] alice- uploaded FLAG{FAKE FLAG} image
+[2025-06-01 16:58:18] alice - logged out
+[2025-06-01 17:02:07] charlie - deleted record
+[2025-06-01 17:03:50] alice - updated profile
+[2025-06-01 17:07:14] frank - downloaded report
+[2025-06-01 17:11:16] frank - changed password
+[2025-06-01 17:14:40] diana - uploaded FLAG{FAKE FLAG} FLAG{FAKE FLAG} image
+[2025-06-01 17:16:59] bob - deleted record
+[2025-06-01 17:17:18] alice - changed password
+[2025-06-01 17:19:22] bob - reset MFA token
+[2025-06-01 17:19:52] alice - downloaded report
+[2025-06-01 17:21:44] alice - checked notifications
+[2025-06-01 17:23:12] diana - viewed dashboard
+[2025-06-01 17:27:24] bob - checked notifications
+[2025-06-01 17:29:25] heidi - updated profile
+[2025-06-01 17:32:43] charlie - checked notifications
+[2025-06-01 17:33:51] charlie - updated profile
+[2025-06-01 17:34:56] alice - updated profile
+[2025-06-01 17:38:18] grace - downloaded report
+[2025-06-01 17:39:06] diana - logged out
+[2025-06-01 17:41:50] bob - checked notifications
+[2025-06-01 17:42:21] frank - created new entry
+[2025-06-01 17:46:10] frank - logged out
+[2025-06-01 17:50:39] frank - logged in
+[2025-06-01 17:54:24] heidi - logged out
+[2025-06-01 17:58:15] frank - reset MFA token
+[2025-06-01 18:02:20] charlie- uploaded FLAG{FAKE FLAG} image
+[2025-06-01 18:04:00] eve - checked notifications
+[2025-06-01 18:08:45] heidi - deleted record
+[2025-06-01 18:12:38] eve - changed password
+[2025-06-01 18:14:53] bob - updated profile
+[2025-06-01 18:18:53] diana - deleted record
+[2025-06-01 18:22:17] frank - logged in
+[2025-06-01 18:26:40] frank - viewed dashboard
+[2025-06-01 18:30:59] diana - changed password
+[2025-06-01 18:33:21] frank - updated profile
+[2025-06-01 18:35:52] alice - created new entry
+[2025-06-01 18:37:39] bob - downloaded report
+[2025-06-01 18:41:17] heidi - created new entry
+[2025-06-01 18:43:30] heidi - reset MFA token
+[2025-06-01 18:47:51] heidi - logged in
+[2025-06-01 18:48:48] eve - downloaded report
+[2025-06-01 18:52:25] diana - updated profile
+[2025-06-01 18:55:43] heidi - created new entry
+[2025-06-01 19:00:24] frank - uploaded image
+[2025-06-01 19:05:15] frank - changed password
+[2025-06-01 19:09:17] eve - updated profile
+[2025-06-01 19:11:35] diana - logged out
+[2025-06-01 19:13:23] frank - logged out
+[2025-06-01 19:18:07] charlie - downloaded report
+[2025-06-01 19:20:07] heidi - updated profile
+[2025-06-01 19:24:45] eve - logged out
+[2025-06-01 19:26:34] eve - downloaded report
+[2025-06-01 19:29:48] charlie - updated profile
+[2025-06-01 19:30:05] charlie - updated profile
+[2025-06-01 19:30:38] alice - created new entry
+[2025-06-01 19:33:17] charlie - reset MFA token
+[2025-06-01 19:37:38] bob - uploaded document 'report_Q2_2025.pdf'
+[2025-06-01 19:37:54] eve - deleted record
+[2025-06-01 19:42:09] heidi - changed password
+[2025-06-01 19:43:53] alice - updated profile
+[2025-06-01 19:48:07] bob - logged out
+[2025-06-01 19:51:42] heidi - logged out
+[2025-06-01 19:52:19] charlie - viewed dashboard
+[2025-06-01 19:57:17] eve - logged out
+[2025-06-01 19:59:34] bob - created new entry
+[2025-06-01 20:03:17] diana - created new entry
+[2025-06-01 20:06:41] heidi - deleted record
+[2025-06-01 20:09:23] grace - updated profile
+[2025-06-01 20:10:03] bob - downloaded report
+[2025-06-01 20:12:01] eve - reset MFA token
+[2025-06-01 20:12:52] charlie - downloaded report
+[2025-06-01 20:14:30] bob - viewed dashboard
+[2025-06-01 20:14:41] grace - deleted record
+[2025-06-01 20:18:51] eve - logged in
+[2025-06-01 20:20:59] eve - updated profile
+[2025-06-01 20:25:01] bob - reset MFA token
+[2025-06-01 20:27:10] eve - reset MFA token
+[2025-06-01 20:29:01] grace - logged out
+[2025-06-01 20:33:49] diana - reset MFA token
+[2025-06-01 20:35:15] eve - viewed dashboard
+[2025-06-01 20:36:01] alice - viewed dashboard
+[2025-06-01 20:38:48] eve - deleted record
+[2025-06-01 20:40:01] heidi - updated profile
+[2025-06-01 20:43:37] eve - created new entry
+[2025-06-01 20:48:23] heidi - deleted record
+[2025-06-01 20:49:14] alice- uploaded FLAG{FAKE FLAG} image
+[2025-06-01 20:52:09] eve - logged in
+[2025-06-01 20:53:05] diana - reset MFA token
+[2025-06-01 20:53:25] eve - checked notifications
+[2025-06-01 20:53:55] charlie - deleted record
+[2025-06-01 20:58:30] heidi - updated profile
+[2025-06-01 21:00:12] grace - reset MFA token
+[2025-06-01 21:04:33] bob - deleted record
+[2025-06-01 21:07:41] grace - changed password
+[2025-06-01 21:10:35] bob - viewed dashboard
+[2025-06-01 21:13:33] grace - deleted record
+[2025-06-01 21:16:10] grace - created new entry
+[2025-06-01 21:16:38] heidi - logged out
+[2025-06-01 21:19:29] eve - changed password
+[2025-06-01 21:20:38] grace - created new entry
+[2025-06-01 21:20:48] heidi - uploaded FLAG{Wrong user}
+[2025-06-01 21:21:25] diana - created new entry
+[2025-06-01 21:24:40] heidi - reset MFA token
+[2025-06-01 21:28:36] alice - downloaded report
+[2025-06-01 21:31:02] charlie - updated profile
+[2025-06-01 21:34:56] heidi - logged out
+[2025-06-01 21:35:20] diana - viewed dashboard
+[2025-06-01 21:38:09] alice - created new entry
+[2025-06-01 21:41:47] bob - downloaded report
+[2025-06-01 21:42:55] heidi - logged out
+[2025-06-01 21:44:23] heidi - updated profile
+[2025-06-01 21:48:53] diana - uploaded FLAG{FAKE FLAG} FLAG{FAKE FLAG} image
+[2025-06-01 21:53:10] heidi - downloaded report
+[2025-06-01 21:57:13] charlie- uploaded FLAG{FAKE FLAG} image
+[2025-06-01 21:59:00] charlie - logged out
+[2025-06-01 22:01:31] grace - changed password
+[2025-06-01 22:06:00] eve - logged in
+[2025-06-01 22:08:34] eve - checked notifications
+[2025-06-01 22:12:54] charlie - deleted record
+[2025-06-01 22:17:39] heidi - changed password
+[2025-06-01 22:20:39] grace - deleted record
+[2025-06-01 22:23:33] diana - downloaded report
+[2025-06-01 22:26:59] diana - uploaded FLAG{FAKE FLAG} FLAG{FAKE FLAG}
+[2025-06-01 22:27:31] frank - deleted record
+[2025-06-01 22:30:56] grace - reset MFA token
+[2025-06-01 22:32:23] heidi - logged in
+[2025-06-01 22:33:37] frank - logged out
+[2025-06-01 22:37:32] bob - created new entry
+[2025-06-01 22:41:35] alice - viewed dashboard
+[2025-06-01 22:45:14] charlie - logged out
+[2025-06-01 22:49:24] eve - changed password
+[2025-06-01 22:52:57] bob - changed password
+[2025-06-01 22:57:40] grace - changed password
+[2025-06-01 23:01:59] alice - checked notifications
+[2025-06-01 23:02:44] diana - reset MFA token
+[2025-06-01 23:05:21] diana - logged out
+[2025-06-01 23:09:13] bob - reset MFA token
+[2025-06-01 23:10:14] heidi - viewed dashboard
+[2025-06-01 23:12:57] alice - logged in
+[2025-06-01 23:15:53] alice - updated profile
+[2025-06-01 23:19:06] frank - uploaded image
+[2025-06-01 23:20:30] diana - created new entry
+[2025-06-01 23:24:10] charlie - viewed dashboard
+[2025-06-01 23:25:49] bob - checked notifications
+[2025-06-01 23:29:14] diana - deleted record
+[2025-06-01 23:30:37] diana - deleted record
+[2025-06-01 23:32:57] heidi - updated profile
+[2025-06-01 23:33:11] heidi - updated profile
+[2025-06-01 23:38:00] charlie - logged out
+[2025-06-01 23:41:56] frank - checked notifications
+[2025-06-01 23:44:39] grace - updated profile
+[2025-06-01 23:48:42] eve - downloaded report
+[2025-06-01 23:52:08] heidi - logged out
+[2025-06-01 23:54:19] grace - checked notifications
+[2025-06-01 23:57:32] eve - updated profile
+[2025-06-01 23:57:53] grace - updated profile
+[2025-06-01 23:58:07] alice - checked notifications
+[2025-06-02 00:02:31] eve - downloaded report
+[2025-06-02 00:05:41] diana - reset MFA token
+[2025-06-02 00:07:28] eve - reset MFA token
+[2025-06-02 00:08:48] bob - reset MFA token
+[2025-06-02 00:09:18] eve - deleted record
+[2025-06-02 00:09:45] frank - viewed dashboard
+[2025-06-02 00:10:41] eve - changed password
+[2025-06-02 00:14:23] charlie - downloaded report
+[2025-06-02 00:15:40] frank - created new entry
+[2025-06-02 00:20:06] eve - viewed dashboard
+[2025-06-02 00:22:27] heidi - updated profile
+[2025-06-02 00:25:30] bob - deleted record
+[2025-06-02 00:26:18] charlie - downloaded report
+[2025-06-02 00:29:51] frank - logged out
+[2025-06-02 00:33:23] alice - updated profile
+[2025-06-02 00:38:07] bob - deleted record
+[2025-06-02 00:41:25] eve - checked notifications
+[2025-06-02 00:44:50] frank - logged out
+[2025-06-02 00:46:59] heidi - logged in
+[2025-06-02 00:51:56] frank - checked notifications
+[2025-06-02 00:53:59] bob - reset MFA token
+[2025-06-02 00:58:06] eve - reset MFA token
+[2025-06-02 01:01:45] bob - viewed dashboard
+[2025-06-02 01:02:18] alice - updated profile
+[2025-06-02 01:06:40] bob - logged out
+[2025-06-02 01:08:50] charlie- uploaded FLAG{FAKE FLAG} image
+[2025-06-02 01:12:52] frank - reset MFA token
+[2025-06-02 01:17:38] grace - checked notifications
+[2025-06-02 01:19:07] grace - reset MFA token
+[2025-06-02 01:20:07] heidi - checked notifications
+[2025-06-02 01:23:45] eve - logged in
+[2025-06-02 01:27:04] diana - deleted record
+[2025-06-02 01:31:01] diana - changed password
+[2025-06-02 01:32:01] frank - created new entry
+[2025-06-02 01:35:14] alice- uploaded FLAG{FAKE FLAG} image
+[2025-06-02 01:37:45] diana - logged out
+[2025-06-02 01:41:47] bob - reset MFA token
+[2025-06-02 01:43:45] alice - logged in
+[2025-06-02 01:46:45] diana - viewed dashboard
+[2025-06-02 01:51:44] diana - logged out
+[2025-06-02 01:56:37] diana - checked notifications
+[2025-06-02 01:58:37] diana - changed password
+[2025-06-02 02:00:02] alice - updated profile
+[2025-06-02 02:01:26] charlie - created new entry
+[2025-06-02 02:03:44] charlie - logged out
+[2025-06-02 02:04:07] charlie - logged in
+[2025-06-02 02:07:20] diana - checked notifications
+[2025-06-02 02:10:15] alice - viewed dashboard
+[2025-06-02 02:12:40] alice - viewed dashboard
+[2025-06-02 02:16:25] bob - logged out
+[2025-06-02 02:20:38] heidi - changed password
+[2025-06-02 02:25:10] bob - deleted record
+[2025-06-02 02:29:37] diana - checked notifications
+[2025-06-02 02:30:09] eve - deleted record
+[2025-06-02 02:30:34] alice - deleted record
+[2025-06-02 02:34:09] grace - reset MFA token
+[2025-06-02 02:35:14] heidi - deleted record
+[2025-06-02 02:36:01] bob - changed password
+[2025-06-02 02:37:26] bob - viewed dashboard
+[2025-06-02 02:39:56] frank - uploaded image
+[2025-06-02 02:44:37] eve - deleted record
+[2025-06-02 02:49:05] grace - logged out
+[2025-06-02 02:50:13] diana - uploaded FLAG{FAKE FLAG} FLAG{FAKE FLAG}
+[2025-06-02 02:54:14] diana - uploaded FLAG{FAKE FLAG} FLAG{FAKE FLAG}
+[2025-06-02 02:57:17] heidi - uploaded NOPE
+[2025-06-02 03:00:59] bob - changed password
+[2025-06-02 03:04:47] frank - reset MFA token
+[2025-06-02 03:07:07] frank - viewed dashboard
+[2025-06-02 03:11:19] bob - logged out
+[2025-06-02 03:12:12] bob - uploaded image
+[2025-06-02 03:13:11] frank - viewed dashboard
+[2025-06-02 03:18:05] alice - checked notifications
+[2025-06-02 03:23:02] frank - reset MFA token
+[2025-06-02 03:24:14] grace - changed password
+[2025-06-02 03:28:00] alice - updated profile
+[2025-06-02 03:30:49] frank - logged out
+[2025-06-02 03:35:18] diana - viewed dashboard
+[2025-06-02 03:39:34] diana - logged out
+[2025-06-02 03:42:43] frank - logged out
+[2025-06-02 03:45:15] diana - uploaded FLAG{FAKE FLAG} FLAG{FAKE FLAG}
+[2025-06-02 03:50:12] alice - checked notifications
+[2025-06-02 03:52:38] alice - viewed dashboard
+[2025-06-02 03:55:07] eve - changed password
+[2025-06-02 03:58:16] alice - viewed dashboard
+[2025-06-02 03:59:39] grace - logged out
+[2025-06-02 04:01:01] alice - logged out
+[2025-06-02 04:05:42] diana - uploaded FLAG{FAKE FLAG} FLAG{FAKE FLAG}
+[2025-06-02 04:09:26] heidi - changed password
+[2025-06-02 04:10:56] frank - updated profile
+[2025-06-02 04:13:52] bob - logged in
+[2025-06-02 04:15:21] charlie - checked notifications
+[2025-06-02 04:15:56] bob - updated profile
+[2025-06-02 04:19:52] grace - deleted record
+[2025-06-02 04:23:48] grace - updated profile
+[2025-06-02 04:25:48] bob - changed password
+[2025-06-02 04:29:38] bob - updated profile
+[2025-06-02 04:33:57] eve - logged in
+[2025-06-02 04:35:59] grace - checked notifications
+[2025-06-02 04:36:37] alice - downloaded report
+[2025-06-02 04:39:21] diana - viewed dashboard
+[2025-06-02 04:41:41] eve - changed password
+[2025-06-02 04:42:52] alice - deleted record
+[2025-06-02 04:46:42] charlie - viewed dashboard
+[2025-06-02 04:50:06] diana - created new entry
+[2025-06-02 04:55:02] frank - logged out
+[2025-06-02 04:58:35] alice- uploaded FLAG{FAKE FLAG} image
+[2025-06-02 04:58:54] heidi - logged out
+[2025-06-02 05:01:44] grace - checked notifications
+[2025-06-02 05:05:21] grace - updated profile
+[2025-06-02 05:06:29] grace - logged in
+[2025-06-02 05:09:25] charlie - checked notifications
+[2025-06-02 05:13:30] frank - logged out
+[2025-06-02 05:17:23] bob - downloaded report
+[2025-06-02 05:21:16] grace - created new entry
+[2025-06-02 05:22:06] grace - updated profile
+[2025-06-02 05:25:09] diana - changed password
+[2025-06-02 05:26:45] bob - created new entry
+[2025-06-02 05:27:53] diana - changed password
+[2025-06-02 05:31:02] charlie - downloaded report
+[2025-06-02 05:32:04] charlie - updated profile
+[2025-06-02 05:33:55] charlie - checked notifications
+[2025-06-02 05:35:23] bob - viewed dashboard
+[2025-06-02 05:39:45] heidi - checked notifications
+[2025-06-02 05:43:44] frank - reset MFA token
+[2025-06-02 05:46:35] charlie - deleted record
+[2025-06-02 05:47:19] heidi - deleted record
+[2025-06-02 05:50:04] eve - checked notifications
+[2025-06-02 05:50:42] frank - created new entry
+[2025-06-02 05:51:29] eve - deleted record
+[2025-06-02 05:55:30] alice - logged in
+[2025-06-02 05:58:48] eve - logged out
+[2025-06-02 05:59:44] grace - deleted record
+[2025-06-02 06:04:37] alice - deleted record
+[2025-06-02 06:06:23] frank - checked notifications
+[2025-06-02 06:10:36] charlie - logged in
+[2025-06-02 06:14:36] bob - changed password
+[2025-06-02 06:15:29] charlie - logged in
+[2025-06-02 06:17:45] heidi - deleted record
+[2025-06-02 06:22:23] charlie - changed password
+[2025-06-02 06:25:43] diana - uploaded FLAG{FAKE FLAG} FLAG{FAKE FLAG} image
+[2025-06-02 06:29:22] frank - reset MFA token
+[2025-06-02 06:29:58] frank - logged out
+[2025-06-02 06:32:56] bob - created new entry
+[2025-06-02 06:36:23] eve - updated profile
+[2025-06-02 06:37:49] frank - logged out
+[2025-06-02 06:39:11] frank - updated profile
+[2025-06-02 06:42:41] charlie - checked notifications
+[2025-06-02 06:43:34] eve - created new entry

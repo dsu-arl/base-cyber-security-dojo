@@ -1,0 +1,72 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+import sys
+import os
+import random
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Polybius square mapping
+polybius_dict = {
+    'A': '11', 'B': '12', 'C': '13', 'D': '14', 'E': '15',
+    'F': '21', 'G': '22', 'H': '23', 'I': '24', 'J': '24', 'K': '25',
+    'L': '31', 'M': '32', 'N': '33', 'O': '34', 'P': '35',
+    'Q': '41', 'R': '42', 'S': '43', 'T': '44', 'U': '45',
+    'V': '51', 'W': '52', 'X': '53', 'Y': '54', 'Z': '55'
+}
+
+# Main function to execute the Polybius square encoding challenge
+def play_polybius_game():
+    print("Welcome to the Polybius Square Encoding Challenge!")
+    print("Note that this challenge uses uppercase letters, and I/J share the same cell (24).")
+    print("Use this table to help you encode your word:\n")
+    print("   1  2  3  4  5")
+    print("1  A  B  C  D  E")
+    print("2  F  G  H I/J K")
+    print("3  L  M  N  O  P")
+    print("4  Q  R  S  T  U")
+    print("5  V  W  X  Y  Z\n")
+
+    word_list = [
+        "CODE",
+        "BYTE",
+        "DATA",
+        "BITS",
+        "FLAG",
+        "TEXT",
+        "INFO",
+        "CHAR",
+        "KEYS",
+        "WORD"
+    ]
+
+    word_to_encode = random.choice(word_list).upper()
+
+    print(f"Your task is to encode this word in Polybius Square coordinates: {word_to_encode}\n")
+
+    encoded_word = []
+
+    for char in word_to_encode:
+        correct_coords = polybius_dict[char]
+        while True:
+            user_input = input(f"Encode this character - {char}: ")
+            if user_input == correct_coords:
+                print("Correct!")
+                encoded_word.append(user_input)
+                break
+            else:
+                print("Incorrect. Try again.")
+                print(f"Hint: Find the letter {char} in the Polybius square and enter its row-column coordinates (e.g., 23 for H).")
+
+    encoded_result = ' '.join(encoded_word)
+
+    print(f"\nCongratulations, you encoded it correctly! Once encoded, {word_to_encode} becomes {encoded_result}.")
+    print_flag()
+
+# Run the game
+play_polybius_game()

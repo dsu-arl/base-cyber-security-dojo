@@ -1,0 +1,205 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+import sys
+import os
+import re
+import random
+import string
+from pprint import pprint
+
+def prGreen(skk): print("\033[92m {}\033[00m" .format(skk))
+def prRed(skk): print("\033[91m {}\033[00m" .format(skk))
+def prYellow(skk): print("\033[93m {}\033[00m" .format(skk))
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# NOTE: All playfair functions were from GeekForGeek
+# Function to convert the string to lowercase
+def toLowerCase(plain):
+    n = len(plain)
+    result = ""
+    for i in range(n):
+        if 64 < ord(plain[i]) < 91:
+            result += chr(ord(plain[i]) + 32)
+        else:
+            result += plain[i]
+    return result
+
+# Function to remove all spaces in a string
+def removeSpaces(plain):
+    n = len(plain)
+    temp = ""
+    for i in range(n):
+        if plain[i] != ' ':
+            temp += plain[i]
+    return temp
+
+# Function to generate the 5x5 key square
+def generateKeyTable(key):
+    n = len(key)
+    keyT = []
+
+    keyT.clear()
+    for i in range(5):
+        keyT.append([0]*5)
+
+    hashMap = [0]*26
+
+    for i in range(n):
+        if key[i] != 'j':
+            hashMap[ord(key[i]) - 97] = 2
+
+    hashMap[ord('j') - 97] = 1
+
+    i = 0
+    j = 0
+
+    for k in range(n):
+        if hashMap[ord(key[k]) - 97] == 2:
+            hashMap[ord(key[k]) - 97] -= 1
+            keyT[i][j] = key[k]
+            j += 1
+            if j == 5:
+                i += 1
+                j = 0
+
+    for k in range(26):
+        if hashMap[k] == 0:
+            keyT[i][j] = chr(k + 97)
+            j += 1
+            if j == 5:
+                i += 1
+                j = 0
+
+    return keyT
+
+# Function to search for the characters of a digraph
+# in the key square and return their position
+def search(keyT, a, b, arr):
+    if a == 'j':
+        a = 'i'
+    if b == 'j':
+        b = 'i'
+
+    for i in range(5):
+        for j in range(5):
+            if keyT[i][j] == a:
+                arr[0] = i
+                arr[1] = j
+            elif keyT[i][j] == b:
+                arr[2] = i
+                arr[3] = j
+
+# Function to make the plain text length to be even
+def prepare(string):
+    if len(string) % 2 != 0:
+        string += 'z'
+    return string
+
+# Function for performing the encryption
+def encrypt(string, keyT):
+    n = len(string)
+    arr = [0]*4
+
+    result = list(string)
+    for i in range(0, n, 2):
+        search(keyT, result[i], result[i+1], arr)
+
+        if arr[0] == arr[2]:
+            result[i] = keyT[arr[0]][(arr[1] + 1) % 5]
+            result[i+1] = keyT[arr[0]][(arr[3] + 1) % 5]
+        elif arr[1] == arr[3]:
+            result[i] = keyT[(arr[0] + 1) % 5][arr[1]]
+            result[i+1] = keyT[(arr[2] + 1) % 5][arr[1]]
+        else:
+            result[i] = keyT[arr[0]][arr[3]]
+            result[i+1] = keyT[arr[2]][arr[1]]
+
+    return ''.join(result)
+
+# Function to encrypt using Playfair Cipher
+def encryptByPlayfairCipher(string, key, keyT):
+    key = toLowerCase(removeSpaces(key))
+    string = toLowerCase(removeSpaces(string))
+    string = prepare(string)
+    return encrypt(string, keyT)
+
+def display_table(keyT):
+    print(" - - - - -  ")
+    print("|{}|{}|{}|{}|{}|".format(keyT[0][0], keyT[0][1], keyT[0][2], keyT[0][3], keyT[0][4]))
+    print("|{}|{}|{}|{}|{}|".format(keyT[1][0], keyT[1][1], keyT[1][2], keyT[1][3], keyT[1][4]))
+    print("|{}|{}|{}|{}|{}|".format(keyT[2][0], keyT[2][1], keyT[2][2], keyT[2][3], keyT[2][4]))
+    print("|{}|{}|{}|{}|{}|".format(keyT[3][0], keyT[3][1], keyT[3][2], keyT[3][3], keyT[3][4]))
+    print("|{}|{}|{}|{}|{}|".format(keyT[4][0], keyT[4][1], keyT[4][2], keyT[4][3], keyT[4][4]))
+    print(" - - - - -  ")
+
+# Main function to execute the cipher game
+def play_playfair_game():
+    print("Welcome to the Playfair Cipher Encrypter!")
+    word_list = [
+        "homer", 
+        "virgil", 
+        "plato", 
+        "aristotle", 
+        "sophocles", 
+        "euripides", 
+        "ovid", 
+        "horace", 
+        "cicero", 
+        "seneca" 
+    ]
+
+    passphrase_list = [
+        "tiger",
+        "zebra",
+        "koala",
+        "lynx",
+        "puma",
+    ]
+
+    secret = random.choice(word_list)
+    passphrase = random.choice(passphrase_list)
+
+
+    print(f"Your task is to use this table encrypt this name: {secret}")
+    print(f"The passphrase used here is: {passphrase}!")
+
+    table = generateKeyTable(passphrase)
+    display_table(table)
+
+    # Encrypt the secret word with the actual shift for comparison
+    encrypted_secret = encryptByPlayfairCipher(secret, passphrase, table)
+
+    # Prompt the user to encrypt each character
+    padded_secret = prepare(secret)
+    split_secret = [f"{padded_secret[i]}{padded_secret[i+1]}" for i in range(0, len(padded_secret) - 1, 2)]
+    split_encrypted_secret = [f"{encrypted_secret[i]}{encrypted_secret[i+1]}" for i in range(0, len(encrypted_secret) - 1, 2)]
+
+    solved = False
+    i = 0
+    while not solved:
+        try:
+            guess = input(f"Encrypt this character pair - {split_secret[i]}: ")
+        except KeyboardInterrupt:
+            print("\nExiting...")
+            sys.exit(0)
+            
+        if guess.strip() != split_encrypted_secret[i].strip():
+            prRed("Sorry, that was not correct. Try again!")
+            prRed("Make sure you type out both characters together with no spaces.\n")
+        else:
+            prGreen("Correct!\n")
+            i = i + 1
+            if i >= len(split_encrypted_secret):
+                solved = True
+
+    prGreen(f"\nCongratulations, you encrypted it correctly!")
+    print(f"The encrypted word is '\033[93m{encrypted_secret}\033[00m'!")
+    print_flag()
+
+# Run the game
+play_playfair_game()

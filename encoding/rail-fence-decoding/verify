@@ -1,0 +1,61 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+import sys
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+def rail_fence_encode(text, rails):
+    # Create a list of empty strings for each rail
+    fence = [''] * rails
+    
+    # Fill the fence with the text in zigzag pattern
+    rail = 0
+    direction = 1  # 1 for down, -1 for up
+    
+    for char in text:
+        fence[rail] += char
+        rail += direction
+        
+        # Change direction when reaching top or bottom rail
+        if rail == rails - 1:
+            direction = -1
+        elif rail == 0:
+            direction = 1
+
+    # Join all rails to get the encoded text
+    return ''.join(fence)
+
+def main():
+    # Fixed word to decode
+    answer = "NETWORK"
+    num_rails = 3
+    
+    # Encode the word
+    encoded_word = rail_fence_encode(answer, num_rails)
+    
+    print("Welcome to the Rail Fence Decoding Challenge!")
+    print(f"\nYour task is to decode this message: {encoded_word}")
+    print(f"{num_rails} rails were used to encode this message.")
+    print("\nType 'quit' to exit.")
+    
+    while True:
+        user_answer = input("Enter your decoded answer: ").upper()
+        
+        if user_answer.lower() == 'quit':
+            break
+            
+        if user_answer == answer:
+            print("Correct!")
+            print("Congratulations! You have passed this challenge! Here is your flag:")
+            print_flag()
+            break
+        else:
+            print("Incorrect. Try again!")
+
+if __name__ == '__main__':
+    main()

@@ -1,5 +1,29 @@
 name: Web
 challenges:
+- id: pale-red-horse-squad
+  name: Pale Red Horse Squad
+  allow_privileged: false
+  image: adbabdsu/swissarmybutton
+- id: swiss-army-button
+  name: Swiss Army Button
+  image: adbabdsu/swissarmybutton
+  allow_privileged: false
+- id: get-to-da-choppa
+  name: YeeBay
+  image: adbabdsu/swissarmybutton
+  allow_privileged: false
+- id: am-i-admin
+  name: Am I Admin?
+  allow_privileged: false
+  image: adbabdsu/swissarmybutton
+- id: am-i-admin-2
+  name: Am I Admin 2?
+  allow_privileged: false
+  image: adbabdsu/swissarmybutton
+- id: forceful-browsing
+  name: Forceful Browsing
+  allow_privileged: false
+  image: adbabdsu/swissarmybutton
 - id: intro-to-burpsuite
   name: Intro to BurpSuite
   allow_privileged: false

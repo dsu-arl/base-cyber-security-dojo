@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chess (easy)</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #f9ccff;
+        }
+    </style>
+    <script>function makeMove(){
+        alert("BAD MOVE. YOU LOSE.");
+    }</script>
+</head>
+<body>
+    <h2>GOOD LUCK</h2>
+    <img height="40%" src="{{ url_for('static', filename='chess.jpg') }}">
+</br>Enter move: <input type="text">
+    <button onclick="makeMove();">Submit</button>
+</body>
+</html>

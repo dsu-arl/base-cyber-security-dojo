@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WHAT'S THE PASSWORD, KID?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #f9ccff;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><text x='0' y='32' font-size='24'>🐎🌸</text></svg>");
+            background-repeat: repeat;
+            background-size: 80px 80px;
+        }
+        .container {
+            max-width: 800px;
+            text-align: justify;
+            padding: 20px;
+            background-color: #f9ccff;
+        }
+        .form-wrapper {
+            float: right;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            background-color: #f9f9f9;
+        }
+        form input, form button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    {% if msg is defined %}
+        <script>alert("{{ msg }}")</script>
+    {% endif %}
+    <div class="container">
+        <div class="form-wrapper">
+            <p>Enter the super secret entry phrase:</p>
+            <form id="checkPass" action="/check-pass" method="post">
+                <input type="text" name="pass" placeholder="Password: " required>
+                <!-- (DEVELOPER NOTE) the password is: "🦩👚🌸🐎🐎🐎P.R.H.S. RULES!!!!!!!!!" -->
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,2 @@
+## Welcome!
+This dojo contains several challenges focused on topics common to reverse engineering. Some of these challenges will be modified to work with fewer steps, while others will (hopefully) challenge your skills. We hope you enjoy!
