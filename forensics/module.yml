@@ -25,3 +25,6 @@ challenges:
 - id: hidden-treasures-in-the-picture
   name: Hidden Treasures in the Picture
   allow_privileged: false
+- id: pcap-analysis
+  name: pcap-analysis
+  allow_privileged: false

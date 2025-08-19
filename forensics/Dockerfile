@@ -10,6 +10,8 @@ RUN apt install -y zip
 
 RUN apt install -y exiftool binwalk
 
+RUN apt install -y wireshark
+
 # Add exec-suid to the image (important for Python challenges to be able to read the flag):
 ADD --chown=0:0 http://github.com/pwncollege/exec-suid/releases/latest/download/exec-suid /usr/bin/exec-suid
 RUN chmod 6755 /usr/bin/exec-suid
@@ -27,6 +29,9 @@ COPY code-cracker/secret.bin /home/ubuntu/Code-Cracker/
 COPY the-artists-clue/art.jpg /home/ubuntu/Artists-Clue/
 
 COPY chatty-server/server.log /home/ubuntu
+
+COPY pcap-analysis/rogue_user.pcap /home/ubuntu/PCAPs
+
 RUN chown ubuntu: /home/ubuntu/server.log
 
 USER hacker

@@ -1,0 +1,40 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+import sys
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Add your imports and other code below here
+def verify_submission(username, password):
+    correct_username = "marcelle"
+    correct_password = "password"
+    
+    if username == correct_username and password == correct_password:
+        return True
+    return False
+
+def main():
+    if len(sys.argv) != 2:
+        print("Error: Please provide the submission in the format 'username:password'")
+        sys.exit(1)
+    
+    submission = sys.argv[1]
+    try:
+        username, password = submission.split(":")
+    except ValueError:
+        print("Error: Submission must be in the format 'username:password'")
+        sys.exit(1)
+    
+    if verify_submission(username, password):
+        print("Correct! Here's the flag:")
+        print_flag()
+    else:
+        print("Incorrect submission. Please check the username and password.")
+
+if __name__ == "__main__":
+    main()
