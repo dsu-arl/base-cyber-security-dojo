@@ -36,6 +36,7 @@ challenges:
   name: Creepy Crawly
   allow_privileged: false
   image: adbabdsu/burpimage-1.7
-- id: mr.-moneybags
+- id: mr-moneybags
   name: Mr. Moneybags
   allow_privileged: false
+  image: adbabdsu/swissarmybutton
