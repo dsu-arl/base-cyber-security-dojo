@@ -1,0 +1,89 @@
+#!/opt/pwn.college/python
+import os
+import sys
+import subprocess
+sys.path.append('/challenge')
+
+def print_instructions():
+    print("""
+    In this challenge, you will exploit a vulnerability in version 2.3.4 of vsFTPd, otherwise known as the
+    'smiley face' vulnerability. This security flaw allows an attacker to gain unauthorized root access to a system 
+    simply by manipulating the username field during FTP login. FTP is a way to transfer files between computers 
+    over the internet, like moving documents between your computer and a website.
+
+    - Step 1: Connect to the FTP Server
+
+    The FTP server should now be active - it is listening on TCP port 21, which is the standard port for FTP.
+
+    You can use the 'nc' (netcat) command to connect to the FTP server. Netcat is a command-line tool used to send and 
+    receive data over a network, often for testing connections, transferring files, or opening backdoor shells. Run: 
+
+        nc 127.0.0.1 21
+
+    If the connection is successful, the server should respond with a greeting message - "220 (vsFTPd 2.3.4)".
+    Note that you will not have a prompt in this connection, but you can still interact with the remote terminal.
+
+    - Step 2: Exploit the vulnerability 
+
+    You will now log in using a specially crafted username that triggers the backdoor. In your nc connection, type:
+
+        USER test:)
+
+    and press Enter. Notice the ':)' at the end of 'test' —this is what activates the malicious backdoor.
+    When prompted for a password, enter `PASS <anything>` (it doesn’t matter). Example:
+
+        PASS test
+
+    Note that nothing will change on your current screen, even if this command was successful.
+
+    - Step 3: Open a root shell
+
+    If the exploit worked, the server will open a new backdoor shell on port 6200. Leave your current nc connection open, 
+    and in a new terminal, run:
+
+        nc 127.0.0.1 6200
+
+    This should connect you to a root shell on the server, giving you full administrative control over the system.
+    Note that you will again not have a prompt, but you will be able to run commands like normal.
+
+    - Step 4: Verify root access
+
+    Once inside the root shell, type:
+
+        whoami
+
+    If the exploit was successful, this command should return:
+
+        root
+
+    This confirms that you now have root privileges, meaning you can run any command on the system.
+
+    - Step 5: Capture the flag!
+
+    In the root shell, read the flag file by running:
+
+        cat /flag
+
+    This will display the flag, completing your challenge!
+    """)
+
+def start_vsftpd():
+    # Become root user to run vsftpd
+    os.setuid(0)
+
+    config_path = "/challenge/vsftpd-2.3.4/vsftpd.conf"
+    subprocess.Popen(["vsftpd", config_path])
+
+def print_flag():
+	try:
+		with open("/flag", "r") as f:
+			print(f.read())
+	except FileNotFoundError:
+		print("Error: Flag file not found.")
+
+def main():
+    start_vsftpd()
+    print_instructions()
+
+if __name__ == "__main__":
+    main()

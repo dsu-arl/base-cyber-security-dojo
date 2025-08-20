@@ -1,1 +1,1 @@
-This module will teach you some basic encoding algorithms!
+Cryptography is the science of securing communication and data by transforming it into an unreadable format using mathematical algorithms, ensuring confidentiality, integrity, and authenticity. It employs techniques like encryption, where data is encoded with a key, and decryption, where the key is used to revert it to its original form. Modern cryptography underpins technologies like blockchain, secure messaging, and digital signatures, protecting information in digital systems.

@@ -1,0 +1,41 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3 -I
+import sys
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            return f.read()
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Add your imports and other code below here
+from flask import Flask, request, render_template
+import hashlib
+
+
+app = Flask(__name__)
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
+
+@app.route('/check-pass', methods=['POST'])
+def checkPass():
+    message = ""
+    password = request.form['pass']
+
+    passHash = hashlib.md5(password.encode("utf-8"))
+    passHash = passHash.hexdigest()
+
+    if (passHash == "c883c31b4792bfedece68f2351e856a8"):
+        message = f'WELCOME TO THE PALE RED HORSE SQUAD! Flag: {print_flag()}'
+        return render_template('club.html', msg=message)
+    else:
+        message = 'Wrong!'
+        return render_template('index.html', msg=message)
+    
+
+
+if __name__ == '__main__':
+    app.run()

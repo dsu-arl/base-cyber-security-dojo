@@ -1,7 +1,7 @@
-id: csc-134
-name: CSC 134
-type: hidden
-password: IntroToCyber
+id: cyber-security
+name: Cyber Security
+type: base
+image: annaopsahl/pc-linux
 modules:
 - id: linux-basics
   name: Linux Basics
@@ -11,3 +11,9 @@ modules:
   name: Cyber History
 - id: osint
   name: OSINT
+- id: web
+  name: Web
+- id: forensics
+  name: Forensics
+- id: pwn
+  name: PWN

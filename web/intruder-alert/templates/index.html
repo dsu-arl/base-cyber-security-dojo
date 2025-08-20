@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Through Quantity</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f0f0f0;
+            font-family: sans-serif;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        input[type="text"], button, input[type="submit"] {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        input[type="submit"],
+        button[type="submit"] {
+            grid-column: span 5;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        input[type="submit"]:hover,
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Make the second form look good */
+        #solutionForm {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        #solutionForm input[type="text"] {
+            grid-column: span 2;
+        }
+
+        #solutionForm button {
+            grid-column: span 5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method="POST" action="/tryXSS" id="xssForm">
+            <!-- 20 Inputs -->
+            <input type="text" name="1" placeholder="1">
+            <input type="text" name="2" placeholder="2">
+            <input type="text" name="3" placeholder="3">
+            <input type="text" name="4" placeholder="4">
+            <input type="text" name="5" placeholder="5">
+            <input type="text" name="6" placeholder="6">
+            <input type="text" name="7" placeholder="7">
+            <input type="text" name="8" placeholder="8">
+            <input type="text" name="9" placeholder="9">
+            <input type="text" name="10" placeholder="10">
+            <input type="text" name="11" placeholder="11">
+            <input type="text" name="12" placeholder="12">
+            <input type="text" name="13" placeholder="13">
+            <input type="text" name="14" placeholder="14">
+            <input type="text" name="15" placeholder="15">
+            <input type="text" name="16" placeholder="16">
+            <input type="text" name="17" placeholder="17">
+            <input type="text" name="18" placeholder="18">
+            <input type="text" name="19" placeholder="19">
+            <input type="text" name="20" placeholder="20">
+            <input type="submit" value="Send">
+        </form>
+
+        <form method="POST" action="/checkSolution" id="solutionForm">
+            <input type="text" name="boxNum" placeholder="Vulnerable Box Number:">
+            <input type="text" name="payload" placeholder="Payload Used:">
+            <button type="submit">Submit (Will shuffle vuln location/type on incorrect answer)</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('xssForm').addEventListener('submit', function(e) {
+            const inputs = Array.from(this.querySelectorAll('input[type="text"]'));
+            const filledCount = inputs.filter(input => input.value.trim() !== "").length;
+
+            if (filledCount !== 1) {
+                e.preventDefault();
+                alert("Please fill in exactly one textbox.");
+            }
+        });
+    </script>
+</body>
+</html>
