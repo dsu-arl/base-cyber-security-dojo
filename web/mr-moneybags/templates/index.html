@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>burpeez</title>
+    <title>ME MILLIONTH DOLLAR</title>
     <style>
         body {
             display: flex;
@@ -12,37 +12,24 @@
             height: 100vh;
             margin: 0;
             font-family: sans-serif;
-            background-color: #f7f3f0;
+            background-color: #b2f7b9ba;
         }
-        .corner-links {
-            position: fixed;
-            bottom: 10px;
-            right: 12px;
-            font-size: 0.85em;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            padding: 6px 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            z-index: 1000;
-            }
-            .corner-links a {
-            color: #0073e6;
-            text-decoration: none;
-            margin-left: 8px;
-            }
-            .corner-links a:first-child {
-            margin-left: 0;
-            }
-            .corner-links a:hover {
-            text-decoration: underline;
+        form {
+             text-align: center; 
+        }
+        button {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        cursor: pointer;
         }
     </style>
 </head>
 <body>
-    token = {{ token }}
     <form action="/feedbackCheck" method="GET">
-        <button type="submit">Check Feedback</button>
+        <p>Press the button to ask Moneybags to check his feedback form. <br><br>User: "<b>moneybags</b>" currently has <b>${{ balance }}.</b></p>
+        <button type="submit">$$$$</button>
     </form>
+    <br>
+    <i>Please direct charitable donations to <b>/charityDonation?user=[yourUsername]&amount=[donationAmount]</b></i>
 </body>
 </html>

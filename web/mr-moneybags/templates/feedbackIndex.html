@@ -2,46 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>burpeez</title>
+    <title>Billionaire Feedback Form!</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: sans-serif;
-            background-color: #f7f3f0;
-        }
-        .corner-links {
-            position: fixed;
-            bottom: 10px;
-            right: 12px;
-            font-size: 0.85em;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            padding: 6px 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            z-index: 1000;
-            }
-            .corner-links a {
-            color: #0073e6;
-            text-decoration: none;
-            margin-left: 8px;
-            }
-            .corner-links a:first-child {
-            margin-left: 0;
-            }
-            .corner-links a:hover {
-            text-decoration: underline;
-        }
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+    form {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 600px;               
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    textarea {
+      resize: vertical;             
+      min-height: 200px;           
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    textarea:focus {
+      outline: none;
+      border-color: #4caf50;
+      box-shadow: 0 0 4px rgba(76, 175, 80, 0.5);
+    }
+    .button-wrapper {
+      display: flex;
+      justify-content: center;      /* center button */
+    }
+    button {
+      padding: 12px 24px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    button:hover {
+      background: #45a049;
+    }
     </style>
 </head>
 <body>
     <form action="/feedbackUpdate" method="POST">
-        <input type="text" name="userFeedback" placeholder="Enter Feedback: " required>
+        <textarea name="userFeedback" placeholder="Enter feedback for Mr. Moneybags: " required></textarea>
+        <br>
         <button type="submit">Update feedback</button>
     </form>
 </body>
