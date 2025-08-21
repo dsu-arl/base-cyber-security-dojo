@@ -39,4 +39,4 @@ challenges:
 - id: mr-moneybags
   name: Mr. Moneybags
   allow_privileged: false
-  image: adbabdsu/swissarmybutton
+  image: adbabdsu/moneybags
