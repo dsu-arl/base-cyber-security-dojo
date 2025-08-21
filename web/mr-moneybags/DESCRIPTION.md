@@ -13,4 +13,4 @@ Cross-Site Request Forgery (CSRF) vulnerabilities involve forcing a user to make
 3. Run `./verify` and `./run-moneybags`
 4. Open the web browser and navigate to `http://127.0.0.1:5000` by typing it into the URL bar. This is the page for the feedback form.
 5. Open the web browser and navigate to `http://127.0.0.1:5555` by typing it into the URL bar. This is the page Moneybags uses for banking and checking feedback.
-6. The flag will be given at `http://127.0.0.1:5555/ once Moneybags has donated all his money to charity.
+6. The flag will be given at `http://127.0.0.1:5555/` once Moneybags has donated all his money to charity.
