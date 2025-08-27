@@ -1,0 +1,60 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3 -I
+import sys
+sys.path.append('/challenge')
+
+
+def print_flag(jsSecret):
+	if jsSecret!=secret:
+		print("No cheating!")
+	else:	
+		try:
+			with open("/flag", "r") as f:
+				text = f.read()
+				# print(text)
+				return text
+		except FileNotFoundError:
+			print("Error: Flag file not found.")
+
+# Add your imports and other code below here
+from flask import Flask, request, render_template, jsonify
+import hashlib
+import secrets
+import random
+from lxml import etree
+
+app = Flask(__name__)
+
+def genSecret(length):
+	return secrets.token_urlsafe(length)[:length]
+
+@app.route('/', methods=['GET'])
+def index(): 
+    return render_template('index.html')
+
+@app.route('/tryXSS', methods=['POST'])
+def tryXSS():
+    for item in request.form.items():
+        if (item[1].strip() != ''):
+            if(int(item[0]) == vulnBox and item[1].startswith(vulnPayload)):
+                return render_template("unsafeMirror.html", payload=item[1])    
+            return render_template('safeMirror.html', payload=item[1])
+
+@app.route('/checkSolution', methods=['POST'])
+def checkSolution():
+    global vulnBox,vulnPayload 
+    textbox = request.form.get("boxNum")
+    payload = request.form.get("payload")
+    if(int(textbox) == int(vulnBox) and payload.startswith(vulnPayload)):
+        flag = print_flag(secret)
+        return render_template('success.html', flag=flag.strip())
+    else:
+        vulnBox = random.randint(1,20)
+        vulnPayload = random.choice(xssTypes)
+        return render_template('fail.html')
+
+
+if __name__ == '__main__':
+    parser = etree.XMLParser(recover=True)
+    tree = etree.parse('xmlfile.xml', parser)
+
+    print(etree.tostring(tree))
