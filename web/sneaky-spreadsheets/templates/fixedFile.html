@@ -40,18 +40,7 @@
     </style>
 </head>
 <body>
-    <h2>Are you terrible at writing XML without typos???</h2>
-    <p>No problem! Just submit your broken stuff below and we'll restore it into something technically valid!*</p>
-
-    <form action="/xmlFix" method="post" enctype="multipart/form-data">
-        <input type="file" name="xmlFile" accept=".xml" required>
-        <button type="submit">Submit</button>
-    </form>
-    <br><br>
-    <div class="corner-links">
-    <i>
-    *Not guaranteed to work.<br>
-    **Non-semantic typos will not be fixed.<br>
-    ***This tool is for entertainment purposes only.</i></div>
+    <p style="font-family: monospace">{{ xmlFixed }}</p>
+    
 </body>
 </html>

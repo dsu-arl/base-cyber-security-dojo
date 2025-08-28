@@ -31,13 +31,17 @@ def genSecret(length):
 def index(): 
     return render_template('index.html')
 
-@app.route('/tryXSS', methods=['POST'])
-def tryXSS():
-    for item in request.form.items():
-        if (item[1].strip() != ''):
-            if(int(item[0]) == vulnBox and item[1].startswith(vulnPayload)):
-                return render_template("unsafeMirror.html", payload=item[1])    
-            return render_template('safeMirror.html', payload=item[1])
+@app.route('/xmlFix', methods=['POST'])
+def xmlFix():
+    try:
+        xmlFile = request.files['xmlFile']
+        filename = xmlFile.filename
+        tree = etree.parse(filename, parser)
+
+        xmlFixed = etree.tostring(tree).decode()
+        return render_template('fixedFile.html', xmlFixed=xmlFixed)
+    except:
+        return render_template('error.html')
 
 @app.route('/checkSolution', methods=['POST'])
 def checkSolution():
@@ -55,6 +59,4 @@ def checkSolution():
 
 if __name__ == '__main__':
     parser = etree.XMLParser(recover=True)
-    tree = etree.parse('xmlfile.xml', parser)
-
-    print(etree.tostring(tree))
+    app.run()
