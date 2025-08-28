@@ -38,5 +38,5 @@ challenges:
   image: adbabdsu/burpimage-1.7
 - id: sneaky-spreadsheets
   name: Sneaky Spreadsheets
-  image: adbabdsu/swissarmybutton
+  image: adbabdsu/lxml
   allow_privileged: false
