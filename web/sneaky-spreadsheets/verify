@@ -3,18 +3,6 @@ import sys
 sys.path.append('/challenge')
 
 
-def print_flag(jsSecret):
-	if jsSecret!=secret:
-		print("No cheating!")
-	else:	
-		try:
-			with open("/flag", "r") as f:
-				text = f.read()
-				# print(text)
-				return text
-		except FileNotFoundError:
-			print("Error: Flag file not found.")
-
 # Add your imports and other code below here
 from flask import Flask, request, render_template, jsonify
 import hashlib
@@ -25,44 +13,29 @@ from lxml import etree
 
 app = Flask(__name__)
 
-def genSecret(length):
-	return secrets.token_urlsafe(length)[:length]
-
 @app.route('/', methods=['GET'])
 def index(): 
     return render_template('index.html')
 
 @app.route('/xmlFix', methods=['POST'])
 def xmlFix():
-    # try:
+    try:
         xmlFile = request.files['xmlFile']
 
-        save_path = "./tmp/xmlFile"
+        save_path = "./tmpXml/xmlFile"
         directory = os.path.dirname(save_path)
 
         if not os.path.exists(directory):
             os.makedirs(directory, exist_ok=True)
 
-        xmlFile.save('./tmp/xmlFile')
-        tree = etree.parse('./tmp/xmlFile', parser)
+        xmlFile.save('./tmpXml/xmlFile')
+        tree = etree.parse('./tmpXml/xmlFile', parser)
 
         xmlFixed = etree.tostring(tree).decode()
+        os.remove(save_path)
         return render_template('fixedFile.html', xmlFixed=xmlFixed)
-    # except:
-        # return render_template('error.html')
-
-@app.route('/checkSolution', methods=['POST'])
-def checkSolution():
-    global vulnBox,vulnPayload 
-    textbox = request.form.get("boxNum")
-    payload = request.form.get("payload")
-    if(int(textbox) == int(vulnBox) and payload.startswith(vulnPayload)):
-        flag = print_flag(secret)
-        return render_template('success.html', flag=flag.strip())
-    else:
-        vulnBox = random.randint(1,20)
-        vulnPayload = random.choice(xssTypes)
-        return render_template('fail.html')
+    except:
+        return render_template('error.html')
 
 
 if __name__ == '__main__':
