@@ -37,6 +37,6 @@ challenges:
   allow_privileged: false
   image: adbabdsu/burpimage-1.7
 - id: sneaky-spreadsheets
-  name: Sneaky Spreadsheets
+  name: XML + Ratio
   image: adbabdsu/lxml
   allow_privileged: false
