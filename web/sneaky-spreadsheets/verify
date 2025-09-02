@@ -35,8 +35,8 @@ def index():
 def xmlFix():
     # try:
         xmlFile = request.files['xmlFile']
-        xmlFile.save('/tmp/xmlFile')
-        tree = etree.parse('/tmp/xmlFile', parser)
+        xmlFile.save('./tmp/xmlFile')
+        tree = etree.parse('./tmp/xmlFile', parser)
 
         xmlFixed = etree.tostring(tree).decode()
         return render_template('fixedFile.html', xmlFixed=xmlFixed)
@@ -58,5 +58,5 @@ def checkSolution():
 
 
 if __name__ == '__main__':
-    parser = etree.XMLParser(recover=True)
+    parser = etree.XMLParser(recover=True, resolve_entities=True)
     app.run()
