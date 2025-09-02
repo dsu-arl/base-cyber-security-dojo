@@ -5,6 +5,7 @@ sys.path.append('/challenge')
 
 # Add your imports and other code below here
 from flask import Flask, request, render_template, jsonify
+from datetime import datetime
 import hashlib
 import secrets
 import random
@@ -22,18 +23,21 @@ def xmlFix():
     try:
         xmlFile = request.files['xmlFile']
 
-        save_path = "./tmpXml/xmlFile"
+        now = datetime.now()
+        timestamp = now.strftime("%Y%m%d_%H%M%S")
+        save_path = f"./xmlFile_{timestamp}"
         directory = os.path.dirname(save_path)
 
         if not os.path.exists(directory):
             os.makedirs(directory, exist_ok=True)
 
-        xmlFile.save('./tmpXml/xmlFile')
-        tree = etree.parse('./tmpXml/xmlFile', parser)
+        xmlFile.save(save_path)
+        tree = etree.parse(save_path, parser)
 
         xmlFixed = etree.tostring(tree).decode()
         os.remove(save_path)
         return render_template('fixedFile.html', xmlFixed=xmlFixed)
+        
     except:
         return render_template('error.html')
 
