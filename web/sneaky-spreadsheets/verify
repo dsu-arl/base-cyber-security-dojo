@@ -20,6 +20,7 @@ from flask import Flask, request, render_template, jsonify
 import hashlib
 import secrets
 import random
+import os
 from lxml import etree
 
 app = Flask(__name__)
@@ -35,6 +36,13 @@ def index():
 def xmlFix():
     # try:
         xmlFile = request.files['xmlFile']
+
+        save_path = "./tmp/xmlFile"
+        directory = os.path.dirname(save_path)
+
+        if not os.path.exists(directory):
+            os.makedirs(directory, exist_ok=True)
+
         xmlFile.save('./tmp/xmlFile')
         tree = etree.parse('./tmp/xmlFile', parser)
 
