@@ -36,3 +36,7 @@ challenges:
   name: Creepy Crawly
   allow_privileged: false
   image: adbabdsu/burpimage-1.7
+- id: sneaky-spreadsheets
+  name: XML + Ratio
+  image: adbabdsu/lxml
+  allow_privileged: false
