@@ -40,3 +40,8 @@ challenges:
   name: Mr. Moneybags
   allow_privileged: false
   image: adbabdsu/moneybags
+- id: sneaky-spreadsheets
+  name: XML + Ratio
+  image: adbabdsu/lxml
+  allow_privileged: false
+
