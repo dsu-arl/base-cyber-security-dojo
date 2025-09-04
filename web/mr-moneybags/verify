@@ -1,0 +1,104 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3 -I
+import sys
+sys.path.append('/challenge')
+
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            text = f.read()
+            # print(text)
+            return text
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Add your imports and other code below here
+from flask import Flask, request, render_template, render_template_string, jsonify
+from urllib.parse import quote, unquote
+from pathlib import Path
+import hashlib
+import random
+import secrets
+import threading
+import time
+import requests 
+
+app = Flask(__name__)
+
+feedbackHead = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>He's DEFINITELY gonna read this.</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+            background: #f0f0f0;
+            font-family: sans-serif;
+            padding: 40px;
+        }
+        .container {
+            background: #fff;
+            padding: 25px 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            max-width: 700px;
+            width: 100%;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+        }
+        p {
+            line-height: 1.6;
+            color: #555;
+            white-space: pre-wrap; /* preserve line breaks */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Feedback</h2>
+        <p>'''
+
+feedbackTail = '''</p>
+    </div>
+</body>
+</html>'''
+
+
+
+
+def genSecret(length):
+	return secrets.token_urlsafe(length)[:length]
+
+@app.route('/get-secret', methods=['POST'])
+def get_secret():
+    return jsonify({'secret': secret})
+
+@app.route('/feedbackUpdate', methods=['POST'])
+def updateFeedback():
+    global feedbackBody
+    userFeedback = request.form["userFeedback"]
+    feedbackBody = userFeedback
+    return render_template("feedbackUpdated.html")
+
+@app.route('/feedback', methods=['GET'])
+def feedback():
+    return render_template_string(feedbackHead+feedbackBody+feedbackTail)
+
+@app.route('/', methods=['GET'])
+def index():
+    return render_template("feedbackIndex.html")
+
+
+if __name__ == '__main__':  
+    secret = genSecret(16)
+    feedbackBody = ""
+    app.run(debug=False, port=5000)
+
