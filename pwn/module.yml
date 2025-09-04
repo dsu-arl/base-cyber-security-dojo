@@ -16,3 +16,6 @@ challenges:
 - id: reverse-password-cipher
   name: Reverse Cipher Password
   allow_privileged: false
+- id: icky-input
+  name: Icky Input
+  allow_privileged: false
