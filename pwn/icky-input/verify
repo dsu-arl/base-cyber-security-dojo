@@ -1,0 +1,48 @@
+#!/usr/bin/exec-suid --real -- /usr/bin/python -I
+import sys
+sys.path.append('/challenge')
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+
+
+# Add your imports and other code below here
+import os
+
+def getEquation():
+    validInput = False
+    ops = ['+', '-', '*', '**', '/', '//', '%', '&', '|', '^', '~', '<<', '>>']
+    os.system('clear')
+    print("Welcome to the greatest calculator program ever made!\nType in any equation and I will solve it with ease!")
+
+    while not validInput:
+        calcString = input("Valid operators: [+, -, *, **, /, //, %, &, |, ^, ~, <<, >>]\nEnter equation: ")
+        for op in ops:
+            if op in calcString:
+                validInput = True
+                break
+        if not validInput:
+            os.system('clear')
+            print("Please enter an equation using the valid operators.\n")
+    return calcString
+
+def tryRunEquation(calcString):
+    try:
+        os.system('clear')
+        print("\nAfter careful deliberation, I have concluded that the answer is: ", eval(calcString), "\n\n")
+        input("Press enter to go again!")
+    except Exception as e:
+        print("Something went wrong: ", repr(e))
+        input("Press enter to try again.")
+
+if __name__ == '__main__':
+    
+    while True:
+        calcString = getEquation()
+        tryRunEquation(calcString)
+        
