@@ -48,3 +48,4 @@ challenges:
   name: Cache Money
   image: adbabdsu/cachemoney
   allow_privileged: false
+

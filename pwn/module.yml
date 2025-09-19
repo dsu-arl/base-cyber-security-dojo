@@ -19,3 +19,4 @@ challenges:
 - id: icky-input
   name: Icky Input
   allow_privileged: false
+
