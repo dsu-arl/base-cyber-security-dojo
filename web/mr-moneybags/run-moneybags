@@ -1,0 +1,93 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3 -I
+import sys
+sys.path.append('/challenge')
+
+
+def print_flag():
+    try:
+        with open("/flag", "r") as f:
+            text = f.read()
+            # print(text)
+            return text
+    except FileNotFoundError:
+        print("Error: Flag file not found.")
+
+# Add your imports and other code below here
+from flask import Flask, request, render_template, render_template_string, jsonify, make_response
+from urllib.parse import quote, unquote
+from pathlib import Path
+import hashlib
+import random
+import secrets
+import time
+import requests 
+
+app = Flask(__name__)
+
+def genSecret(length):
+	return secrets.token_urlsafe(length)[:length]
+
+@app.route('/get-secret', methods=['POST'])
+def get_secret():
+    return jsonify({'secret': secret})
+
+@app.route('/', methods=['GET'])
+def index(): 
+    balance = balances["moneybags"]
+    if balance <= 0:
+        balance = print_flag()
+    return render_template("index.html", balance = balance)
+
+@app.route('/feedbackCheck', methods=['GET'])
+def feedbackCheck():
+    try:
+        feedbackRes =  requests.get("http://127.0.0.1:5000/feedback")
+    except:
+        return render_template("badFeedback.html")
+    resp = make_response(render_template_string(feedbackRes.text))
+    userTokens["moneybags"][1] += 1
+    tokenIndex = userTokens["moneybags"][1]
+    resp.set_cookie('token', userTokens["moneybags"][0][tokenIndex], max_age=1)
+    
+    return resp
+    # req feedback page, render from string and supply token?
+
+@app.route('/charityDonation', methods=['GET'])
+def charityDonation():
+    user = request.args.get('user').lower()
+    token = request.cookies.get('token')
+    print("Got token = ", token)
+    amount = int(request.args.get('amount'))
+
+    if user not in balances:
+        return render_template("badUser.html")
+
+    tokenIndex = userTokens[user][1]
+
+    if (token != userTokens[user][0][tokenIndex]):
+        return render_template("badToken.html")
+    
+    userTokens[user][1] += 1
+    balances[user] = balances[user] - amount
+    if balances[user] <= 0:
+        print(print_flag())
+    balances["charity"] = balances["charity"] + amount
+
+
+    return render_template("thankYou.html", amount=amount)
+
+
+
+if __name__ == '__main__':  
+    balances = {"moneybags": 999999999, "charity": 0}  
+
+    tokenSeq = []
+
+    for i in range(1000):
+        tokenSeq.append(genSecret(32))
+
+    moneybagsToken = tokenSeq
+
+    userTokens = {"moneybags": [moneybagsToken, 0]} # token sequence + index. prevent cheaters :)
+    secret = genSecret(16)
+    app.run(debug=False, port=5555)

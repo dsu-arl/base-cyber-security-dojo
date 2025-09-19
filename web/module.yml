@@ -36,3 +36,16 @@ challenges:
   name: Creepy Crawly
   allow_privileged: false
   image: adbabdsu/burpimage-1.7
+- id: mr-moneybags
+  name: Mr. Moneybags
+  allow_privileged: false
+  image: adbabdsu/moneybags
+- id: sneaky-spreadsheets
+  name: XML + Ratio
+  image: adbabdsu/lxml
+  allow_privileged: false
+- id: cache-money
+  name: Cache Money
+  image: adbabdsu/cachemoney
+  allow_privileged: false
+

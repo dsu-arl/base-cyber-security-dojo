@@ -11,9 +11,11 @@ This challenge will require you to use the Spider tool to automatically map out 
 Newer versions of Burp Community only support passive crawling, which is why we are using an older version.
 
 ## Challenge Steps
+
 1. Start the challenge and use the "GUI Desktop Workspace" option
 2. Navigate to the `/challenge` directory
 3. Run `./verify`
 4. Open a new terminal tab/window and open Burp with `./burp.sh`
 5. Open the web browser and navigate to `127.0.0.1:5000` by typing it into the URL bar
 6. Use Burp to obtain the flag!
+

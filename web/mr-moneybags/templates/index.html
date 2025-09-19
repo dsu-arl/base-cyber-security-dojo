@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ME MILLIONTH DOLLAR</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #b2f7b9ba;
+        }
+        form {
+             text-align: center; 
+        }
+        button {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form action="/feedbackCheck" method="GET">
+        <p>Press the button to ask Moneybags to check his feedback form. <br><br>User: "<b>moneybags</b>" currently has <b>${{ balance }}.</b></p>
+        <button type="submit">$$$$</button>
+    </form>
+    <br>
+    <i>Please direct charitable donations to <b>/charityDonation?user=[yourUsername]&amount=[donationAmount]</b></i>
+</body>
+</html>

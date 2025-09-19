@@ -1,0 +1,47 @@
+#!/usr/bin/exec-suid -- /usr/bin/python3 -I
+import sys
+sys.path.append('/challenge')
+
+
+# Add your imports and other code below here
+from flask import Flask, request, render_template, jsonify
+from datetime import datetime
+import hashlib
+import secrets
+import random
+import os
+from lxml import etree
+
+app = Flask(__name__)
+
+@app.route('/', methods=['GET'])
+def index(): 
+    return render_template('index.html')
+
+@app.route('/xmlFix', methods=['POST'])
+def xmlFix():
+    try:
+        xmlFile = request.files['xmlFile']
+
+        now = datetime.now()
+        timestamp = now.strftime("%Y%m%d_%H%M%S")
+        save_path = f"./xmlFile_{timestamp}"
+        directory = os.path.dirname(save_path)
+
+        if not os.path.exists(directory):
+            os.makedirs(directory, exist_ok=True)
+
+        xmlFile.save(save_path)
+        tree = etree.parse(save_path, parser)
+
+        xmlFixed = etree.tostring(tree).decode()
+        os.remove(save_path)
+        return render_template('fixedFile.html', xmlFixed=xmlFixed)
+        
+    except:
+        return render_template('error.html')
+
+
+if __name__ == '__main__':
+    parser = etree.XMLParser(recover=True, resolve_entities=True)
+    app.run()
