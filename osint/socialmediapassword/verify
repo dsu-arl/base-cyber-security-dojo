@@ -1,4 +1,4 @@
-#!/opt/pwn.college/python
+#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
 
 birthdaywords = ['1999', 'january', '01', '05', 'jan', '99']
 dogwords = ['hermie', 'dog', 'doggy', 'doggo']
