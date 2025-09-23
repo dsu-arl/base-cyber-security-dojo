@@ -1,4 +1,4 @@
-#!/usr/bin/exec-suid -- /usr/bin/python3.12 -I
+#!/usr/bin/exec-suid -- /usr/bin/python3 -I
 def main():
 	print("Looks like you have a new email in your inbox!")
 	input("Press enter to open it...")
