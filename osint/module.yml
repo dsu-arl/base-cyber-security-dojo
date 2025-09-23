@@ -1,4 +1,5 @@
 name: OSINT
+image: copsahl/pwncollege-web
 challenges:
 - id: google-dorks
   name: Google Dorks
