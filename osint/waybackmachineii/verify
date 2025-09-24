@@ -1,15 +1,18 @@
 #!/usr/bin/exec-suid -- /usr/bin/python3 -I
 
+import sys
+import hashlib
+
 def main():
 	try:
 		print("What year was Martial Arts Club founded at Dakota State University? ")
 		ans = input("> ")
 	except KeyboardInterrupt:
-		exit(0)
+		sys.exit(0)
 
-	if ans.strip() != '2002':
+	if hashlib.md5(ans.strip().encode()).hexdigest() != '4ba29b9f9e5732ed33761840f4ba6c53':
 		print("That year isn't correct!\nTry again!")
-		exit(0)
+		sys.exit(0)
 
 	with open('/flag', 'r') as fObj:
 		print(fObj.read().strip())
