@@ -1,21 +1,25 @@
 #!/usr/bin/exec-suid -- /usr/bin/python3 -I
 
+import sys
+import hashlib
+
 def main():
-	try:
-		print("What was Dakota State University's slogan in 2012? ")
-		ans = input("> ")
-	except KeyboardInterrupt:
-		exit(0)
+    try:
+        print("What was Dakota State University's slogan in 2012? ")
+        ans = input("> ").lower()
+    except KeyboardInterrupt:
+        exit(0)
 
-	keywords = ['technically', 'we\'re', 'better']
+    keywords = ['73f38794ec06167c970458212ad62092', '075a959179a3ff15345c5865a10c5435', '8518008e8835d42ddb7c83810b5cede0', 'ff1ccf57e98c817df1efcd9fe44a8aeb', '4015e9ce43edfb0668ddaa973ebc7e87']
 
-	for w in keywords:
-		if w not in ans.lower():
-			print("It appears you don't have the correct slogan!\nTry again!")
-			exit(0)
+    words = ans.split(' ')
+    for w in words:
+        if hashlib.md5(w.encode()).hexdigest() not in keywords:
+            print(f"{w} does not appear in the slogan.")
+            sys.exit(0)
 
-	with open('/flag', 'r') as fObj:
-		print(fObj.read().strip())
+    with open('/flag', 'r') as fObj:
+        print(fObj.read().strip())
 
 if __name__ ==  "__main__":
-	main()
+    main()
