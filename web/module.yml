@@ -51,3 +51,4 @@ challenges:
 - id: samesies
   name: Samesies
   allow_privileged: false
+  image: adbabdsu/samesies
