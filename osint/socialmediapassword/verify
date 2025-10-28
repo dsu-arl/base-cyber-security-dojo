@@ -1,41 +1,46 @@
 #!/usr/bin/exec-suid -- /usr/bin/python3 -I
 
-birthdaywords = ['1999', 'january', '01', '05', 'jan', '99']
-dogwords = ['hermie', 'dog', 'doggy', 'doggo']
-hobbywords = ['reading', 'books', 'classics', 'book', 'read']
+import sys
+import hashlib
+
+def solve_input(inp) -> bool:
+    birthdaywords = ['5ec829debe54b19a5f78d9a65b900a39', '467b6140fe3bb958f2332983914de787', '96a3be3cf272e017046d1b2674a52bd3', '751d31dd6b56b26b29dac2c0e1839e34', 'fa27ef3ef6570e32a79e74deca7c1bc3', 'ac627ab1ccbdb62ec96e702f07f6425b']
+    dogwords = ['0e49ab8b631db42a8c64deb87235a222', '06d80eb0c50b49a509b49f2424e8c805', '24a9436e411b4b755576e97bac9d408f', '4fdea58255c965531a0d2110bac8ddb1']
+    hobbywords = ['eceadc1d40cea061fd5986f2a109ee93', '7d8949bcbf85067fceda9f84a6affb6b', '2d59b9abb271059acf73fbe2f1296493', '821f03288846297c2cf43c34766a38f7', 'ecae13117d6f0584c25a9da6c8f8415e']
+
+    b = False
+    d = False
+    h = False
+
+    for start in range(0, len(inp)):
+        for c in range(1, len(inp) + 1):
+            s = inp[start:c].strip()
+            h = hashlib.md5(s.encode()).hexdigest()
+            if h in birthdaywords and not b:
+                b = True
+            if h in dogwords and not d:
+                d = True
+            if h in hobbywords and not h:
+                h = True
+
+            if b and d and h:
+                return True
+    if not b:
+        print("Missing something from birthday post.")
+    if not d:
+        print("Missing something from dog post.")
+    if not h:
+        print("Missing something from hobby post.")
+
+    return False
 
 print("Given the information collected from '@random_dude12' on InstantGraham,")
 print("create a password using information from all of his posts.")
 user_input = input("> ")
 
-b = False
-d = False
-h = False
-
-for x in birthdaywords:
-    if x in user_input.lower():
-        b = True
-        break
-
-for x in dogwords:
-    if x in user_input.lower():
-        d = True
-        break
-
-for x in hobbywords:
-    if x in user_input.lower():
-        h = True
-        break
-
-if not b:
-    print("Need information regarding the birthday!")
-    exit(0)
-if not d:
-    print("Need information regarding his dog!")
-    exit(0)
-if not h:
-    print("Need information regarding his hobby!")
-    exit(0)
+if not solve_input(user_input):
+    print("That password does not incorporate elements from each post.")
+    sys.exit(0)
 
 print("Password accepted!")
 with open('/flag', 'r') as fObj:

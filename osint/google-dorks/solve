@@ -1,5 +1,6 @@
 #!/usr/bin/exec-suid -- /usr/bin/python3 -I
 import sys
+import hashlib
 sys.path.append('/challenge')
 
 def print_instructions():
@@ -41,20 +42,25 @@ def main():
     print_instructions()
 
     answer = input("What are the first names of the two professors at DSU with the last name 'Richardson'? (any order, space separated) ").lower()
-    if ('rob' in answer or 'robert' in answer) and 'scott' in answer:
-        print("That is correct!")
-        dork = input("\nWhat is the Google dork that you used? (copy/paste the exact search you ran): ")
-        if "site:dsu.edu" in dork and "\"richardson\"" in dork.lower():
-            print("That is correct! An ideal dork for this search would be:")
-            print("\tsite:dsu.edu \"Richardson\" AND \"Department\"")
-            print("This would search dsu.edu for the name 'Richardson' and look for the text 'Department' to filter out 'Richardson Hall'")
-            print("\nHere is your flag!")
-            print_flag()
-        else:
-            print("Ope, that's not quite right. Try again.")
-    else:
-        print("Ope, that's not quite right. Try again.")
+    ans = ['760061f6bfde75c29af12f252d4d3345', '21f63c6e971cd913a9c147e8652ca659', '684c851af59965b680086b7b4896ff98']
+    words = answer.strip().split(' ')
+    for w in words:
+        if hashlib.md5(w.encode()).hexdigest() not in ans:
+            print(f'{w} is incorrect.')
+            sys.exit(0)
+    dork = input("\nWhat is the Google dork that you used? (copy/paste the exact search you ran): ").lower()
+    ans = ['982c7190644d54ca4d902d0891d957b3', '0681a917b131a54931b64a50ce5127e0', 'c9d4f6cfc2f5c2ab97788c2a664a82d5']
+    words = dork.strip().split()
+    for w in words:
+        if hashlib.md5(w.encode()).hexdigest() not in ans:
+            print("That google dork is incorrect.")
+            sys.exit(0)
 
+    print("That is correct! An ideal dork for this search would be:")
+    print("\tsite:dsu.edu \"Richardson\" AND \"Department\"")
+    print("This would search dsu.edu for the name 'Richardson' and look for the text 'Department' to filter out 'Richardson Hall'")
+    print("\nHere is your flag!")
+    print_flag()
 
 if __name__ == "__main__":
     main()
