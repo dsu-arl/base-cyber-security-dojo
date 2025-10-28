@@ -1,5 +1,4 @@
 name: Linux Fundamentals
-
 challenges:
   - id: directories
     name: Move through the Linux filesystem.
