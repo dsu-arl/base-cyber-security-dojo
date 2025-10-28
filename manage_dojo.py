@@ -59,8 +59,6 @@ class Module:
         if self._id is None:
             raise ValueError('ID is not set.')
         return self._id
-<<<<<<< HEAD
-=======
 
     @property
     def data(self):
@@ -596,7 +594,6 @@ def is_unique_new_entry(new, existing, type):
     if dojo_type != '':
         dojo_data['type'] = dojo_type
     write_dojo_yml(dojo_data)
->>>>>>> main
 
     @property
     def data(self):
@@ -608,7 +605,6 @@ def is_unique_new_entry(new, existing, type):
             raise ValueError('Data is not set. Ensure ID is set and file exists.')
         return self._data
 
-<<<<<<< HEAD
     def write_yml(self) -> None:
         with open(self.filepath, 'w') as file:
             yaml.safe_dump(self.data, file, sort_keys=False)
@@ -619,166 +615,6 @@ def is_unique_new_entry(new, existing, type):
         self._id = module_data['id']
 
         # Create module directory
-=======
-######################### CREATE MODULE #########################
-def create_module():
-    # Open the dojo.yml file
-    dojo_data = read_dojo_yml()
-
-    module_name = inquirer.text(
-        message='Enter module name (what will be displayed on pwn.college):'
-    ).execute()
-    module_path = module_name.lower().replace(' ', '-')
-    new_module = {'id': module_path, 'name': module_name}
-
-    # Need to make sure that module doesn't already exist in dojo.yml
-    existing_modules = dojo_data['modules']
-    while not is_unique_new_entry(new_module, existing_modules, type='module'):
-        choice = inquirer.select(
-            message="What would you like to do?",
-            choices=['Try a different module name', 'Quit']
-        ).execute()
-        
-        if choice == 'Quit':
-            print('Exiting module creation process')
-            return
-    
-        module_name = inquirer.text(
-            message='Enter module name (what will be displayed on pwn.college):'
-        ).execute()
-        module_path = module_name.lower().replace(' ', '-')
-        new_module = {'id': module_path, 'name': module_name}
-
-    # Confirm that module name looks correct
-    confirm = inquirer.confirm(message='Do the above settings look correct?').execute()
-    if not confirm:
-        print('Exiting module creation process')
-        return
-
-    # Create module directory
-    try:
-        print(f"Creating directory '{module_path}'...", end='', flush=True)
-        os.makedirs(module_path)
-        print(' Done')
-    except FileExistsError:
-        print(' Error')
-        print(f"Directory '{module_path}' already exists")
-    except Exception as e:
-        print(' Error')
-        print(f'An error occurred trying to create the folder: {e}')
-
-    # Add to dojo.yml modules
-    print('Adding module to dojo.yml file...', end='', flush=True)
-    dojo_data['modules'].append(new_module)
-    write_dojo_yml(dojo_data)
-    print(' Done')
-
-    # Create module.yml file
-    print('Creating module.yml file...', end='', flush=True)
-    filepath = os.path.join(module_path, 'module.yml')
-    with open(filepath, 'w', encoding='utf-8') as file:
-        yaml.safe_dump({'name': module_name}, file, sort_keys=False)
-    print(' Done')
-
-    # Create DESCRIPTION.md file
-    print('Creating DESCRIPTION.md file...', end='', flush=True)
-    filepath = os.path.join(module_path, 'DESCRIPTION.md')
-    with open(filepath, 'w'):
-        pass
-    print(' Done')
-
-
-######################### CREATE CHALLENGE #########################
-def create_challenge():
-    # Display menu with module options
-    modules = get_all_modules()
-    if len(modules) == 0:
-        print('No modules in dojo to delete, exiting now')
-        return
-
-    module_choice = inquirer.rawlist(
-        message='Which module are you adding this challenge to?',
-        choices=modules,
-        default=None
-    ).execute()
-
-    # Read module.yml file
-    module_data = read_module_yml(module_choice)
-    if 'challenges' not in module_data:
-        module_data['challenges'] = []
-
-    # Get challenge name from user and generate challenge id
-    challenge_name = inquirer.text(
-        message='Enter challenge name:'
-    ).execute()
-
-    default_challenge_id = challenge_name.lower().replace(' ', '-')
-    challenge_id = inquirer.text(
-        message='Enter challenge ID:',
-        default=default_challenge_id
-    ).execute()
-
-    new_challenge = {'id': challenge_id, 'name': challenge_name, 'allow_privileged': False}
-
-    # Need to make sure that challenge doesn't already exist in module.yml
-    existing_challenges = module_data['challenges']
-    while not is_unique_new_entry(new_challenge, existing_challenges, type='challenge'):
-        choice = inquirer.select(
-            message="What would you like to do?",
-            choices=['Try a different challenge name', 'Quit']
-        ).execute()
-        
-        if choice == 'Quit':
-            print('Exiting challenge creation process')
-            return
-    
-        challenge_name = inquirer.text(
-            message='Enter challenge name:'
-        ).execute()
-
-        default_challenge_id = challenge_name.lower().replace(' ', '-')
-        challenge_id = inquirer.text(
-            message='Enter challenge ID:',
-            default=default_challenge_id
-        ).execute()
-
-        new_challenge = {'id': challenge_id, 'name': challenge_name, 'allow_privileged': False}
-
-    # Confirm that challenge name looks correct
-    confirm = inquirer.confirm(message='Is the above information correct?').execute()
-
-    if not confirm:
-        print('Exiting challenge creation process')
-        return
-
-    # Create challenge folder
-    try:
-        print(f"Creating directory '{challenge_id}'...", end='', flush=True)
-        module_path = os.path.join(module_choice, challenge_id)
-        os.makedirs(module_path)
-        print(' Done')
-    except FileExistsError:
-        print(' Error')
-        print(f"Directory '{challenge_id}' already exists")
-    except Exception as e:
-        print(' Error')
-        print(f'An error occurred trying to create the folder: {e}')
-
-    # Create DESCRIPTION.md file
-    print('Creating DESCRIPTION.md file...', end='', flush=True)
-    filepath = os.path.join(module_path, 'DESCRIPTION.md')
-    with open(filepath, 'w'):
-        pass
-    print(' Done')
-
-    # Create verify file with the following content:
-    '''
-    #!/usr/bin/exec-suid --real -- /usr/bin/python -I
-    import sys
-    sys.path.append('/challenge')
-
-    def print_flag():
->>>>>>> main
         try:
             print(f"Creating directory '{module_path}'...", end='', flush=True)
             os.makedirs(module_path)
@@ -790,7 +626,6 @@ def create_challenge():
             print(' Error')
             print(f'An error occurred trying to create the folder: {e}')
 
-<<<<<<< HEAD
         # Add to dojo.yml modules
         print('Adding module to dojo.yml file...', end='', flush=True)
         self.dojo.data['modules'].append(module_data)
@@ -818,30 +653,6 @@ def create_challenge():
             # Remove from modules list in dojo.yml
             self.dojo.data['modules'] = [item for item in self.dojo.data['modules'] if item.get('id') != self.id]
             self.dojo.write_yml()
-=======
-    # Add your imports and other code below here
-    '''
-    print('Creating verify file...', end='', flush=True)
-    filepath = os.path.join(module_path, 'verify')
-    # Make indents using 4 spaces instead of tabs
-    indent = ' ' * 4
-    with open(filepath, 'w') as file:
-        file.write('#!/usr/bin/exec-suid --real -- /usr/bin/python -I\n')
-        file.write("import sys\n")
-        file.write("sys.path.append('/challenge')\n\n")
-        file.write("def print_flag():\n")
-        file.write(f"{indent}try:\n")
-        file.write(f'{indent}{indent}with open("/flag", "r") as f:\n')
-        file.write(f"{indent}{indent}{indent}print(f.read())\n")
-        file.write(f"{indent}except FileNotFoundError:\n")
-        file.write(f'{indent}{indent}print("Error: Flag file not found.")\n\n')
-        file.write('# Add your imports and other code below here\n')
-    print(' Done')
-
-    # Add new challenge to module.yml file section
-    module_data['challenges'].append(new_challenge)
-    write_module_yml(module_choice, module_data)
->>>>>>> main
 
 
 class Challenge:
@@ -850,7 +661,6 @@ class Challenge:
         self._id = challenge_id
         self._data = None
     
-<<<<<<< HEAD
     @property
     def id(self):
         if self._id is None:
@@ -1303,21 +1113,6 @@ class Menu:
             vi_mode=True
         ).execute()
 
-=======
-    def _add_submodule_to_challenge(self):
-        # Display menu with module options
-        if len(self.modules) == 0:
-            print('No modules in dojo to select from, exiting now')
-            return
-
-        module_choice = inquirer.rawlist(
-            message='Select module:',
-            choices=self.modules,
-            default=None,
-            vi_mode=True
-        ).execute()
-
->>>>>>> main
         module = Module(module_choice)
         existing_challenges = module.data.get('challenges', [])
         challenge_choice = inquirer.rawlist(
