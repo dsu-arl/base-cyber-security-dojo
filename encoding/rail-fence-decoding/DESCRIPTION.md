@@ -51,6 +51,6 @@ The Rail Fence Cipher is a simple transposition cipher that doesn't change the l
 ### Challenge Steps
 1. Start the challenge
 2. Run `/challenge/verify`
-3. Follow the instructions given in `verify` to decode a secret word using the Rail Fence Cipher and get the flag!
+3. Follow the instructions given in `/challenge/verify` to decode a secret word using the Rail Fence Cipher and get the flag!
 
 *HINT: It might be useful to open a text file to draw out the zigzag pattern and your answer before submitting.*

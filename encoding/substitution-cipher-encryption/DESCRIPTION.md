@@ -26,4 +26,4 @@ While the substitution cipher offers more complexity than the Caesar cipher beca
 ## Challenge Steps
 1. Start the challenge
 2. Run `/challenge/verify`
-3. Follow the instructions given in `verify` to encrypt a secret word and get the flag!
+3. Follow the instructions given in `/challenge/verify` to encrypt a secret word and get the flag!

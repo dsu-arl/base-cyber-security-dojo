@@ -11,4 +11,4 @@ U ..-   V ...-  W .--   X -..-  Y -.--  Z --..
 ### Challenge Steps
 1. Start the challenge
 2. Run `/challenge/verify`
-3. Follow the instructions given in `verify` to decode the Morse code to see the secret word and get the flag!
+3. Follow the instructions given in `/challenge/verify` to decode the Morse code to see the secret word and get the flag!

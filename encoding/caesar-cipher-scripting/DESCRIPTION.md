@@ -20,6 +20,6 @@ Here is the algorithm:
 ## Challenge Steps
 1. Start the challenge
 2. Run `/challenge/verify`
-3. `verify` will give you the ciphertext and the shift amount used to encrypt
+3. `/challenge/verify` will give you the ciphertext and the shift amount used to encrypt
 4. Write a script to decode your ciphertext
-5. Run `verify` again and enter the plaintext your script found - and get the flag!
+5. Run `/challenge/verify` again and enter the plaintext your script found - and get the flag!

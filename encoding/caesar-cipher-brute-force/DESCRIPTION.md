@@ -26,6 +26,6 @@ Try modifying your script from the previous challenge to try every possible key 
 ## Challenge Steps
 1. Start the challenge
 2. Run `/challenge/verify`
-3. `verify` will give you the ciphertext
+3. `/challenge/verify` will give you the ciphertext
 4. Write a script to brute force and decode your ciphertext
-5. Run `verify` again and enter the plaintext your script found - and get the flag!
+5. Run `/challenge/verify` again and enter the plaintext your script found - and get the flag!
