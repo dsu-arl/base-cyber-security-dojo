@@ -22,4 +22,4 @@ Substituted: Q  W  E  R  T  Y  U  I  O  P  A  S  D  F  G  H  J  K  L  Z  X  C  V
 ## Challenge Steps
 1. Start the challenge
 2. Run `/challenge/verify`
-3. Follow the instructions given in `verify` to decrypt a secret word and get the flag!
+3. Follow the instructions given in `/challenge/verify` to decrypt a secret word and get the flag!

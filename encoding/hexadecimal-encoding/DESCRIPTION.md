@@ -21,4 +21,4 @@ Another way you could encode Hex is by converting the Hex digit, into its base-1
 ### Challenge Steps
 1. Start the challenge
 2. Run `/challenge/verify`
-3. Follow the instructions given in `verify` to encode a secret word in Base64 and get the flag!
+3. Follow the instructions given in `/challenge/verify` to encode a secret word in Base64 and get the flag!
