@@ -27,5 +27,5 @@ So, "HELLO" in Polybius Square encoding is: `23 15 31 31 34`
 
 ### Challenge Steps
 1. Start the challenge
-2. Run `verify`
+2. Run `/challenge/verify`
 3. Follow the instructions given in `verify` to encode a secret word using the Polybius Square and get the flag!

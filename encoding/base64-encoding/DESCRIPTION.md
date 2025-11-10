@@ -79,5 +79,5 @@ So, "FORK" in base64 comes out to be: `Rk9SSw==`
 
 ### Challenge Steps
 1. Start the challenge
-2. Run `verify`
+2. Run `/challenge/verify`
 3. Follow the instructions given in `verify` to encode a secret word in Base64 and get the flag!

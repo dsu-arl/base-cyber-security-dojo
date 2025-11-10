@@ -25,5 +25,5 @@ So, "HELLO" in Morse code is:
 
 ### Challenge Steps
 1. Start the challenge
-2. Run `verify`
+2. Run `/challenge/verify`
 3. Follow the instructions given in `verify` to encode a secret word in Morse code and get the flag!

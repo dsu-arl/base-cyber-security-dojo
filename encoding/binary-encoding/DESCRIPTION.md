@@ -35,5 +35,5 @@ So, "HELLO" in binary is: `01001000 01000101 01001100 01001100 01001111`
 
 ### Challenge Steps
 1. Start the challenge
-2. Run `verify`
+2. Run `/challenge/verify`
 3. Follow the instructions given in `verify` to encode a secret word in binary and get the flag!
