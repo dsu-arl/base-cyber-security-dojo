@@ -24,5 +24,5 @@ So, the decoded message is: `HELLO`
 
 ### Challenge Steps
 1. Start the challenge
-2. Run `verify`
+2. Run `/challenge/verify`
 3. Follow the instructions to decode a secret Polybius Square message and get the flag!

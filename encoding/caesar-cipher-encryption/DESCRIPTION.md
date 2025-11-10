@@ -27,5 +27,5 @@ It is important to note that while the Caesar cipher is easy to use, it is not s
 
 ## Challenge Steps
 1. Start the challenge
-2. Run `verify`
+2. Run `/challenge/verify`
 3. Follow the instructions given in `verify` to encrypt a secret word and get the flag!

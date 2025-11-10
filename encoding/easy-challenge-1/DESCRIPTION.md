@@ -5,5 +5,5 @@ For this challenge, you will be given a string to decode where you do not know w
 
 ### Challenge Steps
 1. Start the challenge.
-2. Run `verify`.
+2. Run `/challenge/verify`
 3. Decode the given string and enter the answer to receive your flag.
