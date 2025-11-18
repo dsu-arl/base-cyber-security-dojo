@@ -77,6 +77,23 @@ HOWEVER, remember that we padded '11' with 4 0's in the last step. If we just gi
 
 So, "FORK" in base64 comes out to be: `Rk9SSw==`
 
+#### Encoding via the command line
+
+To encode a string into base64 on the Linux command line, we can use the `base64` command. It will look something like this: 
+```
+echo -n FORK | base64
+```
+
+Or like this (using double quotes for a string with multiple words):
+```
+echo -n "Hello World!" | base64
+```
+
+Output for FORK: `Rk9SSw==`
+Output for "Hello World!": `SGVsbG8gV29ybGQh`
+
+Remember that capital letters and lowercase letters are different, and will be encoded differently!
+
 ### Challenge Steps
 1. Start the challenge
 2. Run `/challenge/verify`
