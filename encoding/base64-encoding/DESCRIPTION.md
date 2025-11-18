@@ -90,6 +90,7 @@ echo -n "Hello World!" | base64
 ```
 
 Output for FORK: `Rk9SSw==`
+
 Output for "Hello World!": `SGVsbG8gV29ybGQh`
 
 Remember that capital letters and lowercase letters are different, and will be encoded differently!
