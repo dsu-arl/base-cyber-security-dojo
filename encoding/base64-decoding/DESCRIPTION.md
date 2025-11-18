@@ -57,6 +57,17 @@ Now, using those three ascii numbers, find the character they correspond to in t
 
 So, decoding `Q1VQ` we get the word `CUP` in all caps!
 
+#### Decoding via the command line
+
+To decode a string from base64 on the Linux command line, we can use the `base64` command with the `-d` flag. It will look something like this:
+```
+echo Rk9SSw== | base64 -d; echo
+```
+
+The extra `echo` at the end just adds a newline to clean up the output, the result of the above command is: 
+```
+FORK
+```
 
 ### Challenge Steps
 1. Start the challenge
