@@ -40,7 +40,7 @@ def play_hex_game():
     encoded_word = []
 
     for char in word_to_encode:
-        correct_ascii = str(hex(ord(char)))
+        correct_ascii = str(hex(ord(char))).upper()
         while True:
             user_input = input(f"Encode this character - {char}: ")
             if user_input == correct_ascii:
