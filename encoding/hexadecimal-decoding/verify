@@ -35,7 +35,7 @@ def play_hex_game():
     word_to_decode = random.choice(word_list).upper()
 
     # Encode the word in Hexadecimal
-    encoded_word = [str(hex(ord(char))).upper() for char in word_to_decode]
+    encoded_word = [ord(char.upper()) for char in word_to_decode]
     encoded_result = ' '.join(encoded_word)
 
     print(f"Your task is to decode this word from the following Hexadecimal values: {encoded_result}")
@@ -44,8 +44,8 @@ def play_hex_game():
     
     for index, hex_value in enumerate(encoded_word):
         while True:
-            user_input = input(f"Decode this Hexadecimal value - {hex_value}: ")
-            if user_input.upper() == word_to_decode[index]:
+            user_input = input(f"Decode this Hexadecimal value - {hex(hex_value)}: ")
+            if ord(user_input.upper()) == hex_value:
                 print("Correct!")
                 decoded_word.append(user_input.upper())
                 break
